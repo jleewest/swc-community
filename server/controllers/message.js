@@ -5,7 +5,14 @@ const Schema = db.Messages;
 
 async function getMessages(req, res) {
   try {
-    const data = await Schema.findAll();
+    const data = await Schema.findAll({
+      include: [
+        {
+          model: db.Users,
+          attributes: ['username'],
+        },
+      ],
+    });
     res.json(data);
     res.status(200);
   } catch (err) {
