@@ -18,7 +18,7 @@
   text-align: center;
 }
 
-.Display body {
+.Display main {
   display: grid;
   grid-template-columns: 1fr 4fr;
 }
