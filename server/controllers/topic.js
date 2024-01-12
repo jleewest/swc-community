@@ -1,6 +1,7 @@
 'use strict';
 
-const Schema = require('../models/topic');
+const db = require('../models/db');
+const Schema = db.Topics;
 
 async function getTopics(req, res) {
   try {
@@ -41,13 +42,9 @@ async function editTopic(req, res) {
   try {
     const id = req.params.id;
     const topic = await Schema.findOne({ where: { id: id } });
-    //add change to make
-    //???
-    topic.title = req.body.title;
-    topic.body = req.body.body;
-
+    await topic.update({ title: req.body.title, body: req.body.body });
     await topic.save();
-    req.body = topic;
+    res.json(topic);
     res.status(200);
   } catch (err) {
     console.log(err);

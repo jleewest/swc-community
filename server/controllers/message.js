@@ -1,6 +1,7 @@
 'use strict';
 
-const Schema = require('../models/message');
+const db = require('../models/db');
+const Schema = db.Messages;
 
 async function getMessages(req, res) {
   try {
@@ -41,13 +42,9 @@ async function editMessage(req, res) {
   try {
     const id = req.params.id;
     const message = await Schema.findOne({ where: { id: id } });
-    //add change to make
-    //???
-    message.title = req.body.title;
-    message.body = req.body.body;
-
+    await message.update({ body: req.body.body });
     await message.save();
-    req.body = message;
+    res.json(message);
     res.status(200);
   } catch (err) {
     console.log(err);

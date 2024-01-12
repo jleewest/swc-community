@@ -3,7 +3,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const sequelize = require('./db.js');
+const db = require('./models/db.js');
 const PORT = 3000;
 
 const router = require('./router.js');
@@ -14,7 +14,7 @@ app.use(router);
 
 async function bootstrap() {
   try {
-    await sequelize.sync();
+    await db.sequelize.sync();
     console.log('DB connected');
     app.listen(PORT, () => {
       console.log(`🚀 Server running at http://localhost:${PORT}`);

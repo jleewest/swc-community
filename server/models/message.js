@@ -1,22 +1,21 @@
-const sequelize = require('../db');
-const { DataTypes } = require('sequelize');
+module.exports = function (sequelize, DataTypes) {
+  const MessageSchema = sequelize.define('Messages', {
+    body: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
 
-//primary key and created_at auto generated in table, therefore not needed in schema?
-//how to auto-generate created_by and topic_id?
+    //user association:
+    //created_by: {
+    //  type: DataTypes.STRING,
+    //  allowNull: false,
+    //},
+  });
 
-const Schema = sequelize.define('Message', {
-  body: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  created_by: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  topic_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-});
+  MessageSchema.associate = function (db) {
+    MessageSchema.belongsTo(db.Topics);
+    MessageSchema.belongsTo(db.Users);
+  };
 
-module.exports = Schema;
+  return MessageSchema;
+};
