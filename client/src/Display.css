@@ -1,0 +1,32 @@
+.Display header {
+  background-image: url(./img/writing-header.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.Display .banner {
+  padding: 20px;
+  background-color: ;
+  text-align: center;
+}
+.Display .banner-title {
+  font-size: 72px;
+  color: var(--tertiary-color);
+  padding: 20px;
+  background-color: rgba(224, 224, 224, 0.7);
+  border-radius: 2px;
+  text-align: center;
+}
+
+.Display body {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.Display .navbar {
+  background-color: var(--primary-tint);
+}
+
+.Display .route-display {
+  background-color: var(--primary-color);
+}

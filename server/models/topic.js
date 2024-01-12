@@ -22,7 +22,15 @@ module.exports = function (sequelize, DataTypes) {
     //},
   });
   TopicSchema.associate = function (db) {
-    TopicSchema.belongsTo(db.Users);
+    TopicSchema.belongsTo(
+      db.Users
+      //  , {
+      //  foreignKey: 'created_by',
+      //  targetKey: 'username',
+      //  as: 'user',
+      //  constraints: false,
+      //}
+    );
     TopicSchema.hasMany(db.Messages);
   };
   return TopicSchema;

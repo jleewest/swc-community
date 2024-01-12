@@ -1,0 +1,25 @@
+.Navbar {
+  border: 2px solid rgba(2, 48, 71, 44%);
+}
+.Navbar li {
+}
+
+.Navbar .nav-routes,
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.Navbar .nav-routes button {
+  padding: 0.5rem;
+  background-color: var(--primary-tint);
+  border-bottom: 2px solid var(--primary-color);
+  box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.7);
+  text-align: left;
+}
+
+.Navbar .nav-routes button:hover {
+  background-color: var(--tertiary-color);
+  border-bottom: 2px solid var(--tertiary-color);
+  color: var(--primary-color);
+}
