@@ -33,11 +33,16 @@ export default function TopicsList() {
       <div>
         <form className='search'>
           <input type='text' placeholder='Search for a topic...' />
-          <button type='submit'>Search</button>
+          <button type='submit' className='primary-button'>
+            Search
+          </button>
         </form>
       </div>
       <div>
-        <form onSubmit={handleSubmit} className='new-topic-form'>
+        <form
+          onSubmit={handleSubmit}
+          className='new-topic-form accent-box-design'
+        >
           <div>
             <div className='main-label'>
               Provide a brief header for your topic{' '}
@@ -67,7 +72,9 @@ export default function TopicsList() {
               required
             />
           </div>
-          <button type='submit'>Start new topic</button>
+          <button type='submit' className='primary-button'>
+            Start new topic
+          </button>
         </form>
       </div>
       <div className='topic-display'>

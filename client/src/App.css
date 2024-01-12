@@ -10,7 +10,33 @@
   --primary-tint: #fffef5;
   --secondary-color: #8ecae6;
   --tertiary-color: #023047;
-  --font-tint: #504f4f;
+  --font-tint: #707070;
 
-  --box-radius: 5px;
+  --box-radius: 0.75rem;
+  --button-radius: 0.5rem;
+
+  --transitions: all 3ms ease-in-out;
+}
+
+.primary-button {
+  background-color: var(--tertiary-color);
+  border: 0.15rem solid var(--tertiary-color);
+  padding: 0.25rem 1rem;
+  border-radius: var(--button-radius);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.primary-button:hover {
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  transition: var(--transitions);
+}
+
+.accent-box-design {
+  background-color: var(--primary-tint);
+  border-style: solid;
+  border-color: var(--secondary-color);
+  border-radius: var(--box-radius);
+  box-shadow: 0.4rem 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
 }

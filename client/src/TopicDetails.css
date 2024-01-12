@@ -1,0 +1,52 @@
+.TopicDetails {
+  border-width: 0.25rem;
+  margin: 1rem 5rem;
+}
+
+.TopicDetails:hover {
+  border-color: var(--tertiary-color);
+  transition: var(--transitions);
+}
+
+.TopicDetails .topic-container {
+  padding: 0.25rem 0.75rem;
+}
+
+.TopicDetails .header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.TopicDetails button {
+  padding: 0.25rem 1rem;
+  margin: 0.2rem;
+}
+
+.TopicDetails .title {
+  padding-top: 0.2rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.TopicDetails .body {
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--font-tint);
+  text-align: left;
+  padding: 0.3rem 0 0.75rem 0;
+}
+
+.TopicDetails .footer {
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-align: left;
+}
+
+.TopicDetails .comment {
+  color: var(--tertiary-color);
+}
+
+.TopicDetails .creator {
+  color: var(--font-tint);
+  padding-left: 0.5rem;
+}

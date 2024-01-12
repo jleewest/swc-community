@@ -1,24 +1,23 @@
 import moment from 'moment';
+import './TopicDetails.css';
 
 export default function TopicDetails(topic) {
-  console.log(topic);
-  console.log(topic.topic.title);
   return (
-    <div className='TopicDetails'>
+    <div className='TopicDetails accent-box-design'>
       <div className='topic-container'>
         <div className='header'>
-          <div className='title'>
-            <h3>{topic.topic.title}</h3>
+          <div className='title'>{topic.topic.title}</div>
+          <div>
+            <button className='primary-button'>🤍 Save</button>
+            <button className='primary-button'> 🏳️ Report</button>
           </div>
-          <button>🤍 Save</button>
-          <button> 🏳️ Report</button>
         </div>
-        <div className='body'>
-          <h4>{topic.topic.body}</h4>
-        </div>
+        <div className='body'>{topic.topic.body}</div>
         <div className='footer'>
-          <span>💬Comments</span>
-          <span>Posted by {moment(topic.createdAt).format('LLLL')}</span>
+          <span className='comment'>💬Comments</span>
+          <span className='creator'>
+            Posted by {moment(topic.topic.createdAt).format('LLLL')}
+          </span>
         </div>
       </div>
     </div>

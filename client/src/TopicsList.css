@@ -5,10 +5,7 @@
 }
 
 .TopicsList .new-topic-form {
-  background-color: var(--primary-tint);
-  border: 0.5rem solid var(--secondary-color);
-  border-radius: var(--box-radius);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
+  border-width: 0.5rem;
   margin: 1rem;
   max-width: fit-content;
   padding: 1rem;
@@ -20,7 +17,7 @@
 }
 
 .TopicsList .support-label {
-  color: var(--font-shade);
+  color: var(--font-tint);
   font-size: 0.75rem;
   font-style: italic;
 }
