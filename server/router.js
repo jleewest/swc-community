@@ -11,14 +11,15 @@ router.post('/users', userController.postUser);
 
 //TOPIC ROUTES
 router.get('/topics', topicController.getTopics);
+router.get('/topics/:id', topicController.getTopicsById);
 router.post('/topics', topicController.postTopic);
-router.delete('/topics/:id', topicController.deleteTopic);
+router.delete('/topics/:id/delete', topicController.deleteTopic);
 router.put('/topics/:id/edit', topicController.editTopic);
 
 //MESSAGE ROUTES
 router.get('/messages', messageController.getMessages);
 router.post('/messages', messageController.postMessage);
-router.delete('/messages/:id', messageController.deleteMessage);
+router.delete('/messages/:id/delete', messageController.deleteMessage);
 router.put('/messages/:id/edit', messageController.editMessage);
 
 router.get('/*', (_, res) => {

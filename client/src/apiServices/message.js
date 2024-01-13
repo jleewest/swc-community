@@ -29,7 +29,7 @@ export async function postMessage(message) {
 
 export async function deleteMessage(id) {
   try {
-    const response = await fetch(`${BASE_URL}/messages/${id}`, {
+    const response = await fetch(`${BASE_URL}/messages/${id}/delete`, {
       method: 'DELETE',
     });
     const data = await response.json();

@@ -10,6 +10,16 @@ export async function getTopics() {
   }
 }
 
+export async function getTopicById(id) {
+  try {
+    const response = await fetch(`${BASE_URL}/topics/${id}`);
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 export async function postTopic(topic) {
   try {
     const response = await fetch(`${BASE_URL}/topics/`, {
@@ -29,7 +39,7 @@ export async function postTopic(topic) {
 
 export async function deleteTopic(id) {
   try {
-    const response = await fetch(`${BASE_URL}/topics/${id}`, {
+    const response = await fetch(`${BASE_URL}/topics/${id}/delete`, {
       method: 'DELETE',
     });
     const data = await response.json();

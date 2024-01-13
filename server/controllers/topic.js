@@ -14,6 +14,18 @@ async function getTopics(req, res) {
   }
 }
 
+async function getTopicsById(req, res) {
+  try {
+    const id = req.params.id;
+    const data = await Schema.findOne({ where: { id: id } });
+    res.json(data);
+    res.status(200);
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
+}
+
 async function postTopic(req, res) {
   try {
     const topic = req.body;
@@ -52,4 +64,10 @@ async function editTopic(req, res) {
   }
 }
 
-module.exports = { getTopics, postTopic, deleteTopic, editTopic };
+module.exports = {
+  getTopics,
+  getTopicsById,
+  postTopic,
+  deleteTopic,
+  editTopic,
+};
