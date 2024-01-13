@@ -3,9 +3,11 @@
 const db = require('../models/db');
 const Schema = db.Messages;
 
-async function getMessages(req, res) {
+async function getMessagesByTopicId(req, res) {
   try {
+    const id = req.params.id;
     const data = await Schema.findAll({
+      where: { TopicId: id },
       include: [
         {
           model: db.Users,
@@ -59,4 +61,9 @@ async function editMessage(req, res) {
   }
 }
 
-module.exports = { getMessages, postMessage, deleteMessage, editMessage };
+module.exports = {
+  getMessagesByTopicId,
+  postMessage,
+  deleteMessage,
+  editMessage,
+};

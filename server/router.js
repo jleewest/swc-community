@@ -17,7 +17,7 @@ router.delete('/topics/:id/delete', topicController.deleteTopic);
 router.put('/topics/:id/edit', topicController.editTopic);
 
 //MESSAGE ROUTES
-router.get('/messages', messageController.getMessages);
+router.get('/messages/:id', messageController.getMessagesByTopicId);
 router.post('/messages', messageController.postMessage);
 router.delete('/messages/:id/delete', messageController.deleteMessage);
 router.put('/messages/:id/edit', messageController.editMessage);

@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import GroupsList from './GroupsList';
-import TopicMessages from './TopicMessages';
+import TopicMessagesList from './TopicMessagesList';
 
 export default function Display() {
   return (
@@ -21,7 +21,7 @@ export default function Display() {
           <Routes>
             <Route path='/' element={<Dashboard />} />
             <Route path='/groups' element={<GroupsList />} />
-            <Route path='/comments/:id' element={<TopicMessages />} />
+            <Route path='/messages/:id' element={<TopicMessagesList />} />
           </Routes>
         </div>
       </main>

@@ -4,6 +4,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    TopicId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
 
     //user association:
     //created_by: {

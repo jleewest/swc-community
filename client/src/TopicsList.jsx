@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getTopics, postTopic } from './apiServices/topic';
-import sortTopics from './utils/sortUtil';
+import { sortTopics } from './utils/sortUtil';
 import TopicDetails from './TopicDetails';
 import './TopicsList.css';
 import { Link } from 'react-router-dom';
@@ -84,7 +84,7 @@ export default function TopicsList() {
         {topics.length > 0 ? (
           topics.map((topic) => {
             return (
-              <Link to={{ pathname: `/comments/${topic.id}` }} key={topic.id}>
+              <Link to={{ pathname: `/messages/${topic.id}` }} key={topic.id}>
                 <TopicDetails topic={topic} />
               </Link>
             );
