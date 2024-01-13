@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import TopicDetails from './TopicDetails';
 import { getTopicById } from './apiServices/topic';
 import { useState, useEffect } from 'react';
 import moment from 'moment';
