@@ -16,7 +16,7 @@ export default function TopicDetails(topic) {
         <div className='footer'>
           <span className='comment'>💬Comments</span>
           <span className='creator'>
-            Posted by {moment(topic.topic.createdAt).format('LLLL')}
+            Posted on {moment(topic.topic.createdAt).format('LLLL')}
           </span>
         </div>
       </div>

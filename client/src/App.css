@@ -10,6 +10,7 @@
   --primary-tint: #fffef5;
   --secondary-color: #8ecae6;
   --tertiary-color: #023047;
+  --accent-color: #ffb703;
   --font-tint: #707070;
 
   --box-radius: 0.75rem;
@@ -29,8 +30,8 @@
 
 .primary-button:hover {
   cursor: pointer;
-  /*background-color: var(--primary-color);
-  color: var(--tertiary-color);*/
+  background-color: var(--accent-color);
+  border: 0.15rem solid var(--accent-color);
   transition: var(--transitions);
 }
 

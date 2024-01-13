@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import GroupsList from './GroupsList';
 import NewTopic from './NewTopic';
+import TopicMessages from './TopicMessages';
 
 export default function Display() {
   return (
@@ -21,6 +22,7 @@ export default function Display() {
           <Routes>
             <Route path='/' element={<Dashboard />} />
             <Route path='/groups' element={<GroupsList />} />
+            <Route path='/comments/:id' element={<TopicMessages />} />
             <Route path='/new-topic' element={<NewTopic />} />
           </Routes>
         </div>

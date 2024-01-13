@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getTopics, postTopic } from './apiService';
+import { getTopics, postTopic } from './apiServices/topic';
 import sortTopics from './utils/sortUtil';
 import TopicDetails from './TopicDetails';
 import './TopicsList.css';
@@ -83,7 +83,11 @@ export default function TopicsList() {
       <div className='topic-display'>
         {topics.length > 0 ? (
           topics.map((topic) => {
-            return <TopicDetails key={topic.id} topic={topic} />;
+            return (
+              <Link to={{ pathname: `/comments/${topic.id}` }} key={topic.id}>
+                <TopicDetails topic={topic} />
+              </Link>
+            );
           })
         ) : (
           <p>There are no topics yet</p>

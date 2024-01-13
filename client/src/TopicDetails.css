@@ -1,10 +1,11 @@
 .TopicDetails {
   border-width: 0.25rem;
   margin: 1rem 5rem;
+  border: 2px solid var(--primary-tint);
 }
 
 .TopicDetails:hover {
-  border-color: var(--tertiary-color);
+  border: 2px solid var(--tertiary-color);
   transition: var(--transitions);
 }
 
