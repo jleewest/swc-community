@@ -14,7 +14,7 @@ async function getTopics(req, res) {
   }
 }
 
-async function getTopicsById(req, res) {
+async function getTopicById(req, res) {
   try {
     const id = req.params.id;
     const data = await Schema.findOne({ where: { id: id } });
@@ -66,7 +66,7 @@ async function editTopic(req, res) {
 
 module.exports = {
   getTopics,
-  getTopicsById,
+  getTopicById,
   postTopic,
   deleteTopic,
   editTopic,
