@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import GroupsList from './GroupsList';
+import NewTopic from './NewTopic';
 
 export default function Display() {
   return (
@@ -20,6 +21,7 @@ export default function Display() {
           <Routes>
             <Route path='/' element={<Dashboard />} />
             <Route path='/groups' element={<GroupsList />} />
+            <Route path='/new-topic' element={<NewTopic />} />
           </Routes>
         </div>
       </main>

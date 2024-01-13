@@ -18,18 +18,9 @@
   text-align: left;
 }
 
-.Navbar .nav-routes a:visited {
-  color: inherit;
-  text-decoration: none;
-}
-
 .Navbar .nav-routes li:hover,
 a:hover {
   background-color: var(--tertiary-color);
   border-bottom: 2px solid var(--tertiary-color);
   color: var(--primary-color);
-}
-
-.Navbar .nav-routes a {
-  text-decoration: none;
 }

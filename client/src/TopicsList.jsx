@@ -3,6 +3,7 @@ import { getTopics, postTopic } from './apiService';
 import sortTopics from './utils/sortUtil';
 import TopicDetails from './TopicDetails';
 import './TopicsList.css';
+import { Link } from 'react-router-dom';
 
 export default function TopicsList() {
   const [topics, setTopics] = useState([]);
@@ -30,7 +31,10 @@ export default function TopicsList() {
 
   return (
     <div className='TopicsList'>
-      <div>
+      <div className='menu'>
+        <button className='primary-button new-topic-button'>
+          <Link to='/new-topic'>Start new topic</Link>
+        </button>
         <form className='search'>
           <input type='text' placeholder='Search for a topic...' />
           <button type='submit' className='primary-button'>
