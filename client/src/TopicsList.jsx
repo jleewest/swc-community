@@ -15,7 +15,6 @@ export default function TopicsList() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(event.target[0].value);
     const newTopic = {
       title: event.target[0].value,
       body: event.target[1].value,
@@ -32,9 +31,9 @@ export default function TopicsList() {
   return (
     <div className='TopicsList'>
       <div className='menu'>
-        <button className='primary-button new-topic-button'>
+        {/*<button className='primary-button new-topic-button'>
           <Link to='/new-topic'>Start new topic</Link>
-        </button>
+        </button>*/}
         <form className='search'>
           <input type='text' placeholder='Search for a topic...' />
           <button type='submit' className='primary-button'>
@@ -47,14 +46,14 @@ export default function TopicsList() {
           onSubmit={handleSubmit}
           className='new-topic-form accent-box-design'
         >
-          <div>
+          <div className='topic'>
             <div className='main-label'>
               Provide a brief header for your topic{' '}
             </div>
-            <div className='support-label'>
+            {/*<div className='support-label'>
               Example: Favorite writing tool, Creating a table of contents,
               etc...{' '}
-            </div>
+            </div>*/}
             <input
               type='text'
               name='title'
@@ -63,11 +62,11 @@ export default function TopicsList() {
               required
             />
           </div>
-          <div>
+          <div className='body'>
             <div className='main-label'>Topic details </div>
-            <div className='support-label'>
+            {/*<div className='support-label'>
               Example: ask questions, share resources, etc...{' '}
-            </div>
+            </div>*/}
             <textarea
               type='textarea'
               name='body'
@@ -76,8 +75,8 @@ export default function TopicsList() {
               required
             />
           </div>
-          <button type='submit' className='primary-button'>
-            Start new topic
+          <button type='submit' className='primary-button submit-button'>
+            Post new topic
           </button>
         </form>
       </div>

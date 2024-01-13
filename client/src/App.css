@@ -28,15 +28,16 @@
 }
 
 .primary-button:hover {
-  background-color: var(--primary-color);
-  color: var(--tertiary-color);
+  cursor: pointer;
+  /*background-color: var(--primary-color);
+  color: var(--tertiary-color);*/
   transition: var(--transitions);
 }
 
 .accent-box-design {
   background-color: var(--primary-tint);
-  border-style: solid;
-  border-color: var(--secondary-color);
+  /*border-style: solid;
+  border-color: var(--secondary-color);*/
   border-radius: var(--box-radius);
   box-shadow: 0.4rem 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
 }
