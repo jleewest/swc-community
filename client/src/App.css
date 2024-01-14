@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  color: var(--tertiary-color);
   margin: 0;
   padding: 0;
 }
@@ -77,25 +78,25 @@ body {
 }
 
 /* script */
-.App h1,
+.App .app-text h1,
 h3 {
   color: var(--tertiary-color);
   font-weight: 500;
 }
 
-.App h1 {
+.App .app-text h1 {
   font-size: 3rem;
   padding-top: 1rem;
 }
 
-.App h2 {
+.App .app-text h2 {
   color: var(--tertiary-color);
   font-family: 'Great Vibes', cursive;
   font-size: 6rem;
   padding: 1rem;
 }
 
-.App h3 {
+.App .app-text h3 {
   font-size: 2rem;
 }
 

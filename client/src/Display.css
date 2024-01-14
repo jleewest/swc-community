@@ -14,7 +14,9 @@
   background-color: rgba(224, 224, 224, 0.7);
   border-radius: var(--box-radius);
   color: var(--tertiary-color);
+  font-family: 'Great Vibes', cursive;
   font-size: 72px;
+  font-weight: 800;
   padding: 20px;
   text-align: center;
 }

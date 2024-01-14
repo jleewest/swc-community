@@ -1,0 +1,22 @@
+/* GROUP EXPECTATIONS CONTAINER */
+.GroupExpectations {
+  padding: 3rem 5rem;
+}
+
+.GroupExpectations h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.GroupExpectations ul {
+  margin-left: 1rem;
+}
+
+.GroupExpectations li {
+  margin: 0.75rem 0;
+  line-height: 1.2rem;
+}
+
+.GroupExpectations ul ul li {
+  margin-left: 0.5rem;
+}

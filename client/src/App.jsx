@@ -7,9 +7,11 @@ function App() {
     <div className='App'>
       <SignedOut>
         <div className='app-container'>
-          <h1>California</h1>
-          <h2>Writers Club</h2>
-          <h3>Community Collaboration Page</h3>
+          <div className='app-text'>
+            <h1>California</h1>
+            <h2>Writers Club</h2>
+            <h3>Community Collaboration Page</h3>
+          </div>
           <SignInButton>
             <button className='login-button primary-button'>Log In</button>
           </SignInButton>
