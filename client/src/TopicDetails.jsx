@@ -12,7 +12,7 @@ export default function TopicDetails(topic) {
     getMessagesByTopicId(topic.topic.id).then((data) => {
       setMessages(sortNewestFirst(data));
     });
-  }, []);
+  }, [topic.topic.id]);
 
   return (
     <div className='TopicDetails accent-box-design'>

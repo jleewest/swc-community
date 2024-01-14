@@ -1,5 +1,6 @@
 import './Navbar.css';
 import { Link } from 'react-router-dom';
+import { SignOutButton } from '@clerk/clerk-react';
 
 //SIDE NAVIGATION BAR LIST OF LINKS
 
@@ -22,7 +23,9 @@ export default function Navbar() {
         </ul>
       </div>
       <div className='center-button'>
-        <button className='logout-button primary-button'>Logout</button>
+        <SignOutButton afterSignOutUrl='/'>
+          <button className='logout-button primary-button'>Logout</button>
+        </SignOutButton>
       </div>
     </div>
   );
