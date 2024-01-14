@@ -3,11 +3,13 @@
   margin: 1rem 5rem;
 }
 
+/* TOPIC POST */
 .MessagesList .topic-container {
   padding: 0.25rem 0.75rem;
+  border: 2px solid var(--tertiary-color);
 }
 
-/* HEADER INCLUDES TITLE AND BUTTONS */
+/* header includes title and buttons */
 .MessagesList .topic-header {
   display: flex;
   justify-content: space-between;
@@ -24,7 +26,7 @@
   margin: 0.2rem;
 }
 
-/* BODY OF TOPIC POST */
+/* body of topic */
 .MessagesList .topic-body {
   color: var(--font-tint);
   font-size: 1rem;
@@ -33,7 +35,7 @@
   text-align: left;
 }
 
-/* FOOTER INCLUDES COMMENTS AND POST CREATOR */
+/* footer includes comments and post creator */
 .MessagesList .footer {
   font-size: 0.75rem;
   font-weight: 400;
@@ -49,7 +51,7 @@
   padding-left: 0.5rem;
 }
 
-/* DISPLAY OF BLOCK OF MESSAGES */
+/* MESSAGES LIST */
 .MessagesList .message-display {
   padding: 1rem 0 0 1rem;
 }
@@ -59,7 +61,7 @@
   font-size: 1rem;
 }
 
-/* NEW COMMENT POST BAR */
+/* POST COMMENT FORM */
 .MessagesList .new-comment-form {
   display: grid;
   grid-template-columns: 5fr 1fr;

@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   margin: 3rem 5rem;
-  padding: 1rem 10rem;
+  padding: 1rem 7rem;
 }
 
 /* inputs */
@@ -36,7 +36,7 @@ textarea {
   border-radius: var(--button-radius);
   box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
   font-size: 1.1rem;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 /* SEARCH BAR */

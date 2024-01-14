@@ -56,7 +56,7 @@ export default function TopicsList() {
             name='body'
             id='body'
             placeholder='What is on your mind?'
-            rows='10'
+            rows='8'
             required
           />
         </div>
