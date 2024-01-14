@@ -1,22 +1,23 @@
 import moment from 'moment';
-//import './TopicDetails.css';
+import './MessageDetails.css';
 
 //FORMAT FOR INDIVIDUAL MESSAGES WITHIN EACH TOPIC
 
 export default function MessageDetails(message) {
   return (
     <div className='MessageDetails accent-box-design'>
-      <div className='message-container'>
-        <div className='body'>{message.message.body}</div>
-        <div className='footer'>
-          <span className='creator'>
+      <div className='message-header'>
+        <div className='message-tag'>
+          <span className='message-creator'>Username</span>
+          <span>
             Posted on {moment(message.message.createdAt).format('LLLL')}
           </span>
-          <div>
-            <span>Edit</span>|<span>Delete</span>
-          </div>
+        </div>
+        <div>
+          <span>Edit</span> | <span>Delete</span>
         </div>
       </div>
+      <div className='message-body'>{message.message.body}</div>
     </div>
   );
 }

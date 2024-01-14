@@ -1,0 +1,28 @@
+/* MESSAGE CONTAINER */
+.MessageDetails {
+  border-bottom: 2px solid var(--tertiary-color);
+  margin: 0.4rem 0;
+  padding: 0.5rem;
+}
+
+/* HEADER INCLUDES AUTHOR, TIMESTAMP, AND EDIT/DELETE */
+.MessageDetails .message-header {
+  color: var(--font-tint);
+  display: flex;
+  font-size: 0.75rem;
+  justify-content: space-between;
+}
+
+.MessageDetails .message-creator {
+  color: var(--tertiary-color);
+  font-size: 1rem;
+  font-weight: 700;
+  padding-right: 0.2rem;
+}
+
+/* MESSAGE BODY CONTENT */
+.MessageDetails .message-body {
+  color: var(--font-tint);
+  font-size: 1rem;
+  padding: 0.5rem;
+}

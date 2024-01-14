@@ -2,6 +2,7 @@
 .TopicDetails {
   border: 2px solid var(--primary-tint);
   margin: 1rem 5rem;
+  border-bottom: 2px solid var(--tertiary-color);
 }
 
 .TopicDetails:hover {

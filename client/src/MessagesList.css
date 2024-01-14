@@ -1,0 +1,82 @@
+/* CONTAINER FOR MESSAGE POST */
+.MessagesList {
+  margin: 1rem 5rem;
+}
+
+.MessagesList .topic-container {
+  padding: 0.25rem 0.75rem;
+}
+
+/* HEADER INCLUDES TITLE AND BUTTONS */
+.MessagesList .topic-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.MessagesList .title {
+  color: var(--tertiary-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-top: 0.2rem;
+}
+
+.MessagesList .topic-header button {
+  margin: 0.2rem;
+}
+
+/* BODY OF TOPIC POST */
+.MessagesList .topic-body {
+  color: var(--font-tint);
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.3rem 0 0.75rem 0;
+  text-align: left;
+}
+
+/* FOOTER INCLUDES COMMENTS AND POST CREATOR */
+.MessagesList .footer {
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-align: left;
+}
+
+.MessagesList .comment {
+  color: var(--tertiary-color);
+}
+
+.MessagesList .topic-creator {
+  color: var(--font-tint);
+  padding-left: 0.5rem;
+}
+
+/* DISPLAY OF BLOCK OF MESSAGES */
+.MessagesList .message-display {
+  padding: 1rem 0 0 1rem;
+}
+
+.MessagesList .message-display p {
+  color: var(--font-tint);
+  font-size: 1rem;
+}
+
+/* NEW COMMENT POST BAR */
+.MessagesList .new-comment-form {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.MessagesList .new-comment-form input {
+  border-radius: var(--button-radius);
+  margin: 0 0.2rem;
+  padding: 0.4rem 0.3rem;
+}
+
+.MessagesList .new-comment-form button {
+  border: 2px solid var(--tertiary-color);
+}
+
+.MessagesList .new-comment-form button:hover {
+  border: 2px solid var(--accent-color);
+}

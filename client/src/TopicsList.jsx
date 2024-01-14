@@ -32,6 +32,7 @@ export default function TopicsList() {
 
   return (
     <div className='TopicsList'>
+      {/* NEW TOPIC FORM */}
       <form
         onSubmit={handleSubmit}
         className='new-topic-form accent-box-design'
@@ -63,12 +64,14 @@ export default function TopicsList() {
           Post new topic
         </button>
       </form>
+      {/* SEARCH BAR */}
       <form className='search-bar'>
         <input type='text' placeholder='Search for a topic...' />
         <button type='submit' className='primary-button'>
           Search
         </button>
       </form>
+      {/* TOPICS CONTAINER */}
       <div className='topic-display'>
         {topics.length > 0 ? (
           topics.map((topic) => {
