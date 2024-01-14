@@ -1,75 +1,52 @@
-.TopicsList .menu {
-  /*display: grid;
-  grid-template-columns: 1fr 2fr;
-  justify-content: space-between;*/
-  text-align: center;
+/* SEARCH BAR */
+.TopicsList .search-bar {
   margin: 2rem 5rem;
+  text-align: center;
 }
 
-/*.TopicsList .new-topic-button {
-  padding: 0.75rem 3rem;
-  border-radius: 50px;
-  font-size: 1rem;
-  box-shadow: 0.4rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
-}*/
-
-/*a {
-  color: var(--primary-color);
-}*/
-
-/*.TopicsList .search {
-  padding: 0 0 0 0rem;
-}*/
-
-.TopicsList .search input {
-  padding: 0.3rem 6rem 0.3rem 0.3rem;
+.TopicsList .search-bar input {
   border-radius: var(--button-radius);
   margin: 0 0.2rem;
+  padding: 0.3rem 6rem 0.3rem 0.3rem;
 }
 
+/* NEW TOPIC FORM */
 .TopicsList .new-topic-form {
+  border-width: 0.5rem;
+  box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
-  border-width: 0.5rem;
   margin: 3rem 5rem;
   padding: 1rem 10rem;
-  box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
 }
 
+/* inputs */
+.TopicsList .new-topic-form input,
+textarea {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
+  margin: 0.2rem 0;
+  padding: 0.3rem;
+  width: 100%;
+}
+
+/* input labels */
+.TopicsList .main-label {
+  color: var(--tertiary-color);
+  font-weight: bold;
+  padding: 0.25rem 0;
+  text-align: left;
+}
+
+/* topic details label with input */
 .TopicsList .body {
   padding: 0.5rem 0;
 }
 
-.TopicsList .new-topic-form input,
-textarea {
-  width: 100%;
-  padding: 0.3rem;
-  margin: 0.2rem 0;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
-}
-
-.TopicsList .main-label,
-.support-label {
-  text-align: left;
-}
-
-.TopicsList .main-label {
-  font-weight: bold;
-  color: var(--tertiary-color);
-  padding: 0.25rem 0;
-}
-
-.TopicsList .support-label {
-  color: var(--font-tint);
-  font-size: 0.75rem;
-  font-style: italic;
-}
-
 .TopicsList .submit-button {
-  font-size: 1.1rem;
-  padding: 1rem 0;
   border-radius: var(--button-radius);
   box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
+  font-size: 1.1rem;
+  padding: 1rem 0;
 }

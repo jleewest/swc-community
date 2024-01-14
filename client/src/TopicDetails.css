@@ -1,7 +1,8 @@
+/* CONTAINER FOR EACH TOPIC POST */
 .TopicDetails {
+  border: 2px solid var(--primary-tint);
   border-width: 0.25rem;
   margin: 1rem 5rem;
-  border: 2px solid var(--primary-tint);
 }
 
 .TopicDetails:hover {
@@ -13,31 +14,34 @@
   padding: 0.25rem 0.75rem;
 }
 
+/* HEADER INCLUDES TITLE AND BUTTONS */
 .TopicDetails .header {
   display: flex;
   justify-content: space-between;
 }
 
-.TopicDetails button {
-  padding: 0.25rem 1rem;
-  margin: 0.2rem;
-}
-
 .TopicDetails .title {
-  padding-top: 0.2rem;
-  font-weight: 600;
-  font-size: 1.5rem;
   color: var(--tertiary-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-top: 0.2rem;
 }
 
+.TopicDetails button {
+  margin: 0.2rem;
+  padding: 0.25rem 1rem;
+}
+
+/* BODY OF TOPIC POST */
 .TopicDetails .body {
-  font-weight: 400;
-  font-size: 1rem;
   color: var(--font-tint);
-  text-align: left;
+  font-size: 1rem;
+  font-weight: 400;
   padding: 0.3rem 0 0.75rem 0;
+  text-align: left;
 }
 
+/* FOOTER INCLUDES COMMENTS AND POST CREATOR */
 .TopicDetails .footer {
   font-size: 0.75rem;
   font-weight: 400;

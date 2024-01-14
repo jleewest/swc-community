@@ -32,17 +32,12 @@ export default function TopicsList() {
 
   return (
     <div className='TopicsList'>
-      <div className='menu'>
-        {/*<button className='primary-button new-topic-button'>
-          <Link to='/new-topic'>Start new topic</Link>
-        </button>*/}
-        <form className='search'>
-          <input type='text' placeholder='Search for a topic...' />
-          <button type='submit' className='primary-button'>
-            Search
-          </button>
-        </form>
-      </div>
+      <form className='search-bar'>
+        <input type='text' placeholder='Search for a topic...' />
+        <button type='submit' className='primary-button'>
+          Search
+        </button>
+      </form>
       <div>
         <form
           onSubmit={handleSubmit}
@@ -52,10 +47,6 @@ export default function TopicsList() {
             <div className='main-label'>
               Provide a brief header for your topic{' '}
             </div>
-            {/*<div className='support-label'>
-              Example: Favorite writing tool, Creating a table of contents,
-              etc...{' '}
-            </div>*/}
             <input
               type='text'
               name='title'
@@ -66,9 +57,6 @@ export default function TopicsList() {
           </div>
           <div className='body'>
             <div className='main-label'>Topic details </div>
-            {/*<div className='support-label'>
-              Example: ask questions, share resources, etc...{' '}
-            </div>*/}
             <textarea
               type='textarea'
               name='body'

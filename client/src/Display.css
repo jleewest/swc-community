@@ -1,28 +1,30 @@
+/*TOP HEADER*/
 .Display header {
   background-image: url(./img/writing-header.jpg);
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .Display .banner {
   padding: 20px;
-  background-color: ;
   text-align: center;
 }
 .Display .banner-title {
-  font-size: 72px;
-  color: var(--tertiary-color);
-  padding: 20px;
   background-color: rgba(224, 224, 224, 0.7);
   border-radius: var(--box-radius);
+  color: var(--tertiary-color);
+  font-size: 72px;
+  padding: 20px;
   text-align: center;
 }
 
+/*MAIN PAGE*/
 .Display main {
   display: grid;
   grid-template-columns: 1fr 4fr;
 }
 
+/*NAVBAR*/
 .Display .navbar {
   background-color: var(--primary-tint);
 }
