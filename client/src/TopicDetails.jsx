@@ -2,7 +2,7 @@ import moment from 'moment';
 import './TopicDetails.css';
 import { useState, useEffect } from 'react';
 import { getMessagesByTopicId } from './apiServices/message';
-import { sortOldestFirst } from './utils/sortUtil';
+import { sortNewestFirst } from './utils/sortUtil';
 
 //FORMAT FOR INDIVIDUAL TOPIC ENTRIES
 
@@ -10,7 +10,7 @@ export default function TopicDetails(topic) {
   const [messages, setMessages] = useState([]);
   useEffect(() => {
     getMessagesByTopicId(topic.topic.id).then((data) => {
-      setMessages(sortOldestFirst(data));
+      setMessages(sortNewestFirst(data));
     });
   }, []);
 
@@ -28,7 +28,15 @@ export default function TopicDetails(topic) {
         <div className='footer'>
           <span className='comment'>💬 {messages.length} Comments</span>
           <span className='creator'>
-            Posted on {moment(topic.topic.createdAt).format('LLLL')}
+            {messages.length === 0 ? (
+              <span>
+                Posted on {moment(topic.topic.createdAt).format('LLLL')}
+              </span>
+            ) : (
+              <span>
+                Last Commented on {moment(messages[0].createdAt).format('LLLL')}
+              </span>
+            )}
           </span>
         </div>
       </div>
