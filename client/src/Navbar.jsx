@@ -9,13 +9,13 @@ export default function Navbar() {
     <div className='Navbar'>
       <div>
         <ul className='nav-routes'>
-          <li className='nav-home'>
-            <Link to='/'>Home</Link>
-          </li>
+          <Link to='/'>
+            <li className='nav-home'>Home</li>
+          </Link>
           <li>Your Profile</li>
-          <li>
-            <Link to='/groups'>Your Groups</Link>
-          </li>
+          <Link to='/groups'>
+            <li>Your Groups</li>
+          </Link>
           <li>Search Groups</li>
           <li>Members</li>
           <li>FAQs</li>

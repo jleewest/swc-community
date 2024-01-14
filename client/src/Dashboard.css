@@ -3,16 +3,15 @@
   padding: 3rem 5rem;
 }
 
+/* GROUP EXPECTATIONS */
 .Dashboard .welcome-message h2 {
   font-size: 2rem;
 }
 
 .Dashboard .welcome-message p {
-  margin: 1rem 0;
   line-height: 1.2rem;
+  margin: 1rem 0;
 }
-
-/* GROUP EXPECTATIONS */
 
 /* expectations link */
 .Dashboard .expectations-link {
@@ -23,4 +22,10 @@
   background-color: var(--primary-color);
   color: var(--accent-color);
   text-decoration: none;
+}
+
+/* YOUR GROUPS */
+.Dashboard .your-groups h2 {
+  margin: 3rem 0;
+  font-size: 2rem;
 }

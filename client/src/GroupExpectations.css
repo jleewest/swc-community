@@ -6,6 +6,7 @@
 .GroupExpectations h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .GroupExpectations ul {
@@ -13,10 +14,19 @@
 }
 
 .GroupExpectations li {
-  margin: 0.75rem 0;
   line-height: 1.2rem;
+  margin: 0.75rem 0;
 }
 
 .GroupExpectations ul ul li {
   margin-left: 0.5rem;
+}
+
+.GroupExpectations button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.GroupExpectations .return-button {
+  text-align: center;
 }

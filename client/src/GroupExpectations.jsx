@@ -1,4 +1,5 @@
 import './GroupExpectations.css';
+import { Link } from 'react-router-dom';
 
 export default function GroupExpectations() {
   return (
@@ -97,6 +98,11 @@ export default function GroupExpectations() {
           an Administrator through the provided contact link.
         </li>
       </ul>
+      <div className='return-button'>
+        <Link to='/'>
+          <button className='primary-button'>Return to Home</button>
+        </Link>
+      </div>
     </div>
   );
 }
