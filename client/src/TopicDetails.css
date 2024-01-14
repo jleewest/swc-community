@@ -1,7 +1,6 @@
 /* CONTAINER FOR EACH TOPIC POST */
 .TopicDetails {
   border: 2px solid var(--primary-tint);
-  border-width: 0.25rem;
   margin: 1rem 5rem;
 }
 

@@ -32,44 +32,43 @@ export default function TopicsList() {
 
   return (
     <div className='TopicsList'>
+      <form
+        onSubmit={handleSubmit}
+        className='new-topic-form accent-box-design'
+      >
+        <div className='topic'>
+          <div className='main-label'>
+            Provide a brief header for your topic{' '}
+          </div>
+          <input
+            type='text'
+            name='title'
+            id='title'
+            placeholder='Enter topic header...'
+            required
+          />
+        </div>
+        <div className='body'>
+          <div className='main-label'>Topic details </div>
+          <textarea
+            type='textarea'
+            name='body'
+            id='body'
+            placeholder='What is on your mind?'
+            rows='10'
+            required
+          />
+        </div>
+        <button type='submit' className='primary-button submit-button'>
+          Post new topic
+        </button>
+      </form>
       <form className='search-bar'>
         <input type='text' placeholder='Search for a topic...' />
         <button type='submit' className='primary-button'>
           Search
         </button>
       </form>
-      <div>
-        <form
-          onSubmit={handleSubmit}
-          className='new-topic-form accent-box-design'
-        >
-          <div className='topic'>
-            <div className='main-label'>
-              Provide a brief header for your topic{' '}
-            </div>
-            <input
-              type='text'
-              name='title'
-              id='title'
-              placeholder='Enter topic header...'
-              required
-            />
-          </div>
-          <div className='body'>
-            <div className='main-label'>Topic details </div>
-            <textarea
-              type='textarea'
-              name='body'
-              id='body'
-              placeholder='What is on your mind?'
-              required
-            />
-          </div>
-          <button type='submit' className='primary-button submit-button'>
-            Post new topic
-          </button>
-        </form>
-      </div>
       <div className='topic-display'>
         {topics.length > 0 ? (
           topics.map((topic) => {
