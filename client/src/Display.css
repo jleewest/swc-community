@@ -1,8 +1,9 @@
-/*TOP HEADER*/
+/* TOP HEADER */
 .Display header {
   background-image: url(./img/writing-header.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  border-bottom: 1rem solid var(--tertiary-color);
 }
 
 .Display .banner {
@@ -18,17 +19,38 @@
   text-align: center;
 }
 
-/*MAIN PAGE*/
+/* MAIN PAGE */
 .Display main {
   display: grid;
   grid-template-columns: 1fr 4fr;
 }
 
-/*NAVBAR*/
-.Display .navbar {
-  background-color: var(--primary-tint);
-}
-
 .Display .route-display {
   background-color: var(--primary-color);
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.Display .display-navbar {
+  background-color: var(--primary-tint);
+  border-right: 0.15rem solid var(--tertiary-color);
+  min-height: 100vh;
+}
+
+/* FOOTER */
+.Display footer {
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+  font-size: 0.65rem;
+  padding: 1.5rem 1rem 0.5rem 1rem;
+  text-align: right;
+}
+
+.Display footer a {
+  color: var(--primary-color);
+}
+
+.Display footer a:hover {
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
 }

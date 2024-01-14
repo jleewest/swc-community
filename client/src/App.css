@@ -24,6 +24,7 @@
   background-color: var(--tertiary-color);
   border: 0.15rem solid var(--tertiary-color);
   border-radius: var(--button-radius);
+  box-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.7);
   color: var(--primary-color);
   font-weight: 600;
   padding: 0.25rem 1rem;
@@ -40,7 +41,7 @@
 .accent-box-design {
   background-color: var(--primary-tint);
   border-radius: var(--box-radius);
-  box-shadow: 0.4rem 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 -0.5px 6px rgba(0, 0, 0, 0.4);
 }
 
 /*REMOVE DEFAULT CSS OF ROUTER LINK*/

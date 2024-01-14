@@ -1,8 +1,4 @@
-.Navbar {
-  border: 2px solid rgba(2, 48, 71, 44%);
-}
-
-/*ROUTES*/
+/* ROUTES */
 .Navbar .nav-routes,
 .buttons {
   display: flex;
@@ -12,14 +8,25 @@
 .Navbar .nav-routes li {
   background-color: var(--primary-tint);
   border-bottom: 2px solid var(--primary-color);
-  box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.7);
-  padding: 0.5rem;
+  box-shadow: 0 -0.5px 6px rgba(0, 0, 0, 0.4);
+  list-style: none;
+  padding: 0.75rem 0.75rem 0.75rem 1rem;
   text-align: left;
 }
 
 .Navbar .nav-routes li:hover,
 a:hover {
-  background-color: var(--tertiary-color);
-  border-bottom: 2px solid var(--tertiary-color);
+  background-color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
   color: var(--primary-color);
+}
+
+/* LOGOUT */
+.Navbar .center-button {
+  text-align: center;
+}
+
+.Navbar .logout-button {
+  margin-top: 2rem;
+  padding: 0.5rem 3rem;
 }

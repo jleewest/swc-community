@@ -1,6 +1,6 @@
 /* CONTAINER FOR MESSAGE POST */
 .MessagesList {
-  margin: 1rem 5rem;
+  margin: 3rem 5rem;
 }
 
 /* TOPIC POST */
@@ -53,7 +53,7 @@
 
 /* MESSAGES LIST */
 .MessagesList .message-display {
-  padding: 1rem 0 0 1rem;
+  padding-top: 1rem;
 }
 
 .MessagesList .message-display p {
@@ -71,7 +71,7 @@
 
 .MessagesList .new-comment-form input {
   border-radius: var(--button-radius);
-  margin: 0 0.2rem;
+  margin-right: 0.4rem;
   padding: 0.4rem 0.3rem;
 }
 

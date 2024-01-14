@@ -5,7 +5,7 @@ import Dashboard from './Dashboard';
 import GroupsList from './GroupsList';
 import MessagesList from './MessagesList';
 
-//STANDARD DISPLAY STRUCTURE WITHIN WHICH ALL COMPONENTS ARE LOADED
+//DISPLAY STRUCTURE WITHIN WHICH ALL COMPONENTS ARE LOADED
 
 export default function Display() {
   return (
@@ -16,7 +16,7 @@ export default function Display() {
         </div>
       </header>
       <main>
-        <div className='navbar'>
+        <div className='display-navbar'>
           <Navbar />
         </div>
         <div className='route-display'>
@@ -27,7 +27,12 @@ export default function Display() {
           </Routes>
         </div>
       </main>
-      <footer></footer>
+      <footer>
+        Open Source Code by{' '}
+        <a href='#' target='_blank'>
+          Jenna Westendorf
+        </a>
+      </footer>
     </div>
   );
 }
