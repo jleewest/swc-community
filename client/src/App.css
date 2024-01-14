@@ -53,3 +53,56 @@ a:visited {
   color: inherit;
   text-decoration: none;
 }
+
+/* LOGIN PAGE */
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./img/book-login.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* title page container */
+.App .app-container {
+  background-color: rgba(224, 224, 224, 0.7);
+  border-radius: var(--box-radius);
+  box-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.7);
+  left: 45%;
+  padding: 5rem 7rem;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-45%, -50%);
+}
+
+/* script */
+.App h1,
+h3 {
+  color: var(--tertiary-color);
+  font-weight: 500;
+}
+
+.App h1 {
+  font-size: 3rem;
+  padding-top: 1rem;
+}
+
+.App h2 {
+  color: var(--tertiary-color);
+  font-family: 'Great Vibes', cursive;
+  font-size: 6rem;
+  padding: 1rem;
+}
+
+.App h3 {
+  font-size: 2rem;
+}
+
+/* login button */
+.App .login-button {
+  border-radius: 50px;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  padding: 0.5rem 4rem;
+}
