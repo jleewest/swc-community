@@ -48,6 +48,6 @@ textarea {
 
 .TopicsList .search-bar input {
   border-radius: var(--button-radius);
-  margin: 0 0.2rem;
+  margin-right: 0.4rem;
   padding: 0.3rem;
 }
