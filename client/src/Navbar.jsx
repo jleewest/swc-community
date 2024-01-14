@@ -1,6 +1,8 @@
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 
+//SIDE NAVIGATION BAR LIST OF LINKS
+
 export default function Navbar() {
   return (
     <div className='Navbar'>

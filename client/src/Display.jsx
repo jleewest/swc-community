@@ -3,7 +3,9 @@ import Navbar from './Navbar';
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import GroupsList from './GroupsList';
-import TopicMessagesList from './TopicMessagesList';
+import MessagesList from './MessagesList';
+
+//STANDARD DISPLAY STRUCTURE WITHIN WHICH ALL COMPONENTS ARE LOADED
 
 export default function Display() {
   return (
@@ -21,7 +23,7 @@ export default function Display() {
           <Routes>
             <Route path='/' element={<Dashboard />} />
             <Route path='/groups' element={<GroupsList />} />
-            <Route path='/messages/:id' element={<TopicMessagesList />} />
+            <Route path='/messages/:id' element={<MessagesList />} />
           </Routes>
         </div>
       </main>

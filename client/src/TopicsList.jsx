@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
 import { getTopics, postTopic } from './apiServices/topic';
-import { sortTopics } from './utils/sortUtil';
+import { sortNewestFirst } from './utils/sortUtil';
 import TopicDetails from './TopicDetails';
 import './TopicsList.css';
 import { Link } from 'react-router-dom';
+
+//FORMAT FOR LIST OF TOPICS
 
 export default function TopicsList() {
   const [topics, setTopics] = useState([]);
   useEffect(() => {
     getTopics().then((data) => {
-      setTopics(sortTopics(data));
+      setTopics(sortNewestFirst(data));
     });
   }, []);
 
@@ -22,7 +24,7 @@ export default function TopicsList() {
 
     postTopic(newTopic).then((data) => {
       setTopics((prev) => {
-        return sortTopics([...prev, data]);
+        return sortNewestFirst([...prev, data]);
       });
     });
     event.target.reset();

@@ -2,9 +2,11 @@ import { useParams } from 'react-router-dom';
 import { getTopicById } from './apiServices/topic';
 import { postMessage, getMessagesByTopicId } from './apiServices/message';
 import { useState, useEffect } from 'react';
-import { sortMessages } from './utils/sortUtil';
+import { sortOldestFirst } from './utils/sortUtil';
 import MessageDetails from './MessageDetails';
 import moment from 'moment';
+
+//FORMAT FOR LIST OF ALL MESSAGES FOR EACH TOPIC
 
 export default function TopicMessages() {
   const [topic, setTopic] = useState([]);
@@ -16,7 +18,7 @@ export default function TopicMessages() {
       setTopic(data);
     });
     getMessagesByTopicId(topicId.id).then((data) => {
-      setMessages(sortMessages(data));
+      setMessages(sortOldestFirst(data));
     });
   }, []);
 
@@ -30,7 +32,7 @@ export default function TopicMessages() {
 
     postMessage(newMessage).then((data) => {
       setMessages((prev) => {
-        return sortMessages([...prev, data]);
+        return sortOldestFirst([...prev, data]);
       });
     });
     event.target.reset();
@@ -48,7 +50,7 @@ export default function TopicMessages() {
         </div>
         <div className='body'>{topic.body}</div>
         <div className='footer'>
-          <span className='comment'>💬Comments</span>
+          <span className='comment'>💬 {messages.length} Comments</span>
           <span className='creator'>
             Posted on {moment(topic.createdAt).format('LLLL')}
           </span>
