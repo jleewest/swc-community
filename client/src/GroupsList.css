@@ -1,0 +1,28 @@
+/* GROUPSLIST CONTAINER */
+.GroupsList {
+  margin: 3rem 3rem;
+}
+
+/* MENU BAR */
+.GroupsList .groups-menu-bar {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.GroupsList .search-bar {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  margin: 2rem 5rem;
+}
+
+.GroupsList .search-bar input {
+  border-radius: var(--button-radius);
+  margin-right: 0.4rem;
+  padding: 0.3rem;
+}
+
+.GroupsList .new-group-button {
+  margin-left: 0.4rem;
+}
