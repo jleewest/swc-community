@@ -70,7 +70,6 @@ export default function NewGroupForm() {
             </button>
           </div>
         </form>
-        <div></div>
       </div>
     </div>
   );

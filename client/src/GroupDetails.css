@@ -1,0 +1,55 @@
+.GroupDetails .group-details-container {
+  /*box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.4);*/
+  border: 0.2rem solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0.6rem;
+  padding: 0.5rem 0.5rem;
+  height: 18rem;
+  width: 13rem;
+}
+
+.GroupDetails .group-details-container:hover {
+  border: 0.2rem solid var(--tertiary-color);
+}
+
+/* IMAGE */
+.GroupDetails .image-container {
+  text-align: center;
+}
+
+.GroupDetails img {
+  border: 0.2rem solid var(--tertiary-color);
+  border-radius: var(--box-radius);
+  height: 6rem;
+  width: 6rem;
+  /*max-width: 100%;*/
+}
+
+/* GROUP TITLE AND DESCRIPTION */
+.GroupDetails .group-details-body {
+  padding: 0.5rem 0;
+}
+
+.GroupDetails .group-details-body h2 {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.GroupDetails .group-details-body p {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.25rem;
+}
+
+/* submit button */
+.GroupDetails .submit-button {
+  text-align: center;
+}
+
+.GroupDetails .submit-button button {
+  border-radius: var(--button-radius);
+  box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
+  font-size: 0.65rem;
+  padding: 0.25rem 1rem;
+}

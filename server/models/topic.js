@@ -32,7 +32,7 @@ module.exports = function (sequelize, DataTypes) {
       //}
     );
     TopicSchema.hasMany(db.Messages);
-    TopicSchema.belongsTo(db.Groups);
+    //TopicSchema.belongsTo(db.Groups);
   };
   return TopicSchema;
 };

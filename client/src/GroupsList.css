@@ -1,14 +1,19 @@
-/* GROUPSLIST CONTAINER */
+/* GROUPS LIST CONTAINER */
 .GroupsList {
   margin: 3rem 3rem;
 }
 
 /* MENU BAR */
 .GroupsList .groups-menu-bar {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  justify-content: space-between;
   align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-left: 3rem;
+}
+
+.GroupsList .new-group-button {
+  margin-left: 0.4rem;
+  padding: 0.75rem 1rem;
 }
 
 .GroupsList .search-bar {
@@ -23,6 +28,13 @@
   padding: 0.3rem;
 }
 
-.GroupsList .new-group-button {
-  margin-left: 0.4rem;
+/* GROUPS DISPLAY */
+.GroupsList .groups-header {
+  margin: 0 3rem;
+}
+
+.GroupsList .group-display {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
+  margin: 3rem 3rem;
 }

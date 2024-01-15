@@ -12,7 +12,7 @@ export async function getGroups() {
 
 export async function getGroupById(id) {
   try {
-    const response = await fetch(`${BASE_URL}/topics/${id}`);
+    const response = await fetch(`${BASE_URL}/groups/${id}`);
     const data = await response.json();
     return data;
   } catch (e) {
