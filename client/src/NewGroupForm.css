@@ -64,5 +64,6 @@ textarea {
   border-radius: var(--button-radius);
   box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
   font-size: 1.1rem;
+  margin-top: 1rem;
   padding: 0.5rem 1rem;
 }

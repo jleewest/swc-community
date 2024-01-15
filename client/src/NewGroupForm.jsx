@@ -1,9 +1,24 @@
 import './NewGroupForm.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { postGroup } from './apiServices/group';
+import img from './img/book.jpg';
 
-//FILL-FORM TO START A NEW GROUP
+//POST A NEW GROUP
 
 export default function NewGroupForm() {
+  const navigate = useNavigate();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const newGroup = {
+      title: event.target[0].value,
+      body: event.target[1].value,
+      img: event.target[2].value,
+    };
+
+    postGroup(newGroup).then(navigate('/groups'));
+  }
+
   return (
     <div className='NewGroupForm'>
       <div className='form-container accent-box-design'>
@@ -13,13 +28,11 @@ export default function NewGroupForm() {
           </Link>
         </div>
         {/* NEW TOPIC FORM */}
-        <form className='new-group-form'>
+        <form onSubmit={handleSubmit} className='new-group-form'>
           <div className='group'>
             <div className='image-container'>
-              <img
-                src='https://images.photowall.com/products/84847/incredible-fantasy-world.jpg?h=699&q=85'
-                alt='Group Image'
-              />
+              <div className='img'></div>
+              <img src={img} alt='Group Image' />
             </div>
             <div className='main-label'>What is the name of your group?</div>
             <input
@@ -41,6 +54,16 @@ export default function NewGroupForm() {
               required
             />
           </div>
+          <div className='main-label'>
+            Choose the cover photo for your group
+          </div>
+          <input
+            type='text'
+            name='img'
+            id='img'
+            placeholder='Enter the url for your photo...'
+            required
+          />
           <div className='submit-button'>
             <button type='submit' className='primary-button'>
               Add new group
