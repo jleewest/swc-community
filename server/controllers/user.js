@@ -17,7 +17,7 @@ async function getUsers(req, res) {
 async function getUserByClerkId(req, res) {
   try {
     const id = req.params.id;
-    const data = await Schema.findOne({ where: { ClerkId: id } });
+    const data = await Schema.findOne({ where: { clerkId: id } });
     res.json(data);
     res.status(200);
   } catch (err) {
