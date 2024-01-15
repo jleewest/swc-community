@@ -21,7 +21,7 @@ export default function Display() {
       clerkId: user.id,
       firstName: user.firstName,
       lastName: user.lastName,
-      email: user.emailAddresses[0],
+      email: user.emailAddresses[0].emailAddress,
       username: user.username,
     };
     postUser(newUser);

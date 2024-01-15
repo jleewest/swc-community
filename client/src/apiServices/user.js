@@ -16,7 +16,7 @@ export async function postUser(user) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        clerkId: user.id,
+        clerkId: user.clerkId,
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,

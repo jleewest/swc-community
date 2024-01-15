@@ -17,8 +17,9 @@ async function getUsers(req, res) {
 async function postUser(req, res) {
   try {
     const user = req.body;
-    const findUser = await Schema.findOne({ where: { clerkId: id } });
-    if (findUser === 'null') {
+    const clerkId = user.clerkId;
+    const findUser = await Schema.findOne({ where: { clerkId: clerkId } });
+    if (findUser === null) {
       const savedUser = await Schema.create(user);
       res.json(savedUser);
     }
