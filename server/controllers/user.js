@@ -14,6 +14,18 @@ async function getUsers(req, res) {
   }
 }
 
+async function getUserByClerkId(req, res) {
+  try {
+    const id = req.params.id;
+    const data = await Schema.findOne({ where: { ClerkId: id } });
+    res.json(data);
+    res.status(200);
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
+}
+
 async function postUser(req, res) {
   try {
     const user = req.body;
@@ -30,4 +42,4 @@ async function postUser(req, res) {
   }
 }
 
-module.exports = { getUsers, postUser };
+module.exports = { getUsers, getUserByClerkId, postUser };

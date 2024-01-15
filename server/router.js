@@ -8,6 +8,7 @@ const messageController = require('./controllers/message');
 
 //USER ROUTES
 router.get('/users', userController.getUsers);
+router.get('/users/:id', userController.getUserByClerkId);
 router.post('/users', userController.postUser);
 
 //GROUP ROUTES

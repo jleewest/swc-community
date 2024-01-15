@@ -10,6 +10,16 @@ export async function getUser() {
   }
 }
 
+export async function getUserByClerkId(id) {
+  try {
+    const response = await fetch(`${BASE_URL}/users/${id}`);
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 export async function postUser(user) {
   try {
     const response = await fetch(`${BASE_URL}/users/`, {
