@@ -12,25 +12,23 @@ import './MessagesList.css';
 export default function MessagesList() {
   const [topic, setTopic] = useState([]);
   const [messages, setMessages] = useState([]);
-  const topicId = useParams();
+  const params = useParams();
 
   useEffect(() => {
-    getTopicsById(topicId.id).then((data) => {
+    getTopicsById(params.groupId).then((data) => {
       setTopic(data);
     });
-    getMessagesByTopicId(topicId.id).then((data) => {
+    getMessagesByTopicId(params.topicId).then((data) => {
       setMessages(sortOldestFirst(data));
     });
-  }, [topicId]);
-
-  console.log(topic);
+  }, [params]);
 
   function handleSubmit(event) {
     event.preventDefault();
     console.log(event);
     const newMessage = {
       body: event.target[0].value,
-      TopicId: topicId.id,
+      TopicId: params.topicId,
     };
 
     postMessage(newMessage).then((data) => {
@@ -42,51 +40,60 @@ export default function MessagesList() {
   }
 
   return (
-    <div className='MessagesList '>
-      {/* TOPIC POST */}
-      <div className='topic-container accent-box-design'>
-        <div className='topic-header'>
-          <div className='title'>{topic[0].title}</div>
-          <div>
-            <button className='primary-button'>🤍 Save</button>
-            <button className='primary-button'> 🏳️ Report</button>
+    <div>
+      {topic.length > 0 ? (
+        <div className='MessagesList '>
+          {/* TOPIC POST */}
+          <div className='topic-container accent-box-design'>
+            <div className='topic-header'>
+              <div className='title'>{topic[0].title}</div>
+              <div>
+                <button className='primary-button'>🤍 Save</button>
+                <button className='primary-button'> 🏳️ Report</button>
+              </div>
+            </div>
+            <div className='topic-body'>{topic[0].body}</div>
+            <div className='footer'>
+              <span className='comment'>💬 {messages.length} Comments</span>
+              <span className='topic-creator'>
+                Discussion Started on{' '}
+                {moment(topic[0].createdAt).format('LLLL')}
+              </span>
+            </div>
           </div>
-        </div>
-        <div className='topic-body'>{topic[0].body}</div>
-        <div className='footer'>
-          <span className='comment'>💬 {messages.length} Comments</span>
-          <span className='topic-creator'>
-            Discussion Started on {moment(topic[0].createdAt).format('LLLL')}
-          </span>
-        </div>
-      </div>
-      {/* MESSAGES LIST */}
-      <div className='messages-container'>
-        <div className='main-body'>
-          <div className='message-display'>
-            {messages.length > 0 ? (
-              messages.map((message) => {
-                return <MessageDetails key={message.id} message={message} />;
-              })
-            ) : (
-              <p>There are no comments yet...</p>
-            )}
+          {/* MESSAGES LIST */}
+          <div className='messages-container'>
+            <div className='main-body'>
+              <div className='message-display'>
+                {messages.length > 0 ? (
+                  messages.map((message) => {
+                    return (
+                      <MessageDetails key={message.id} message={message} />
+                    );
+                  })
+                ) : (
+                  <p>There are no comments yet...</p>
+                )}
+              </div>
+            </div>
           </div>
+          {/* POST COMMENT FORM */}
+          <form className='new-comment-form' onSubmit={handleSubmit}>
+            <input
+              type='text'
+              name='body'
+              id='body'
+              placeholder='Comment on the topic...'
+              required
+            />
+            <button type='submit' className='primary-button'>
+              Post
+            </button>
+          </form>
         </div>
-      </div>
-      {/* POST COMMENT FORM */}
-      <form className='new-comment-form' onSubmit={handleSubmit}>
-        <input
-          type='text'
-          name='body'
-          id='body'
-          placeholder='Comment on the topic...'
-          required
-        />
-        <button type='submit' className='primary-button'>
-          Post
-        </button>
-      </form>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }

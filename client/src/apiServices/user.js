@@ -1,6 +1,6 @@
 const BASE_URL = 'http://localhost:3000';
 
-export async function getUsers() {
+export async function getUser() {
   try {
     const response = await fetch(`${BASE_URL}/users`);
     const data = await response.json();
@@ -16,6 +16,7 @@ export async function postUser(user) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        clerkId: user.id,
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,

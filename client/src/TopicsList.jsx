@@ -79,7 +79,10 @@ export default function TopicsList() {
         {topics.length > 0 ? (
           topics.map((topic) => {
             return (
-              <Link to={{ pathname: `/messages/${topic.id}` }} key={topic.id}>
+              <Link
+                to={{ pathname: `/messages/${groupId.id}/${topic.id}` }}
+                key={topic.id}
+              >
                 <TopicDetails topic={topic} />
               </Link>
             );

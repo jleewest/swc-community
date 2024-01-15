@@ -8,12 +8,6 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-
-    //user association:
-    //created_by: {
-    //  type: DataTypes.STRING,
-    //  allowNull: false,
-    //},
   });
 
   MessageSchema.associate = function (db) {

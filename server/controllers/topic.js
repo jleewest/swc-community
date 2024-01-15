@@ -53,9 +53,10 @@ async function deleteTopic(req, res) {
 async function editTopic(req, res) {
   try {
     const id = req.params.id;
-    const topic = await Schema.findOne({ where: { id: id } });
-    await topic.update({ title: req.body.title, body: req.body.body });
-    await topic.save();
+    const topic = await Schema.update(
+      { title: req.body.title, body: req.body.body },
+      { where: { id: id } }
+    );
     res.json(topic);
     res.status(200);
   } catch (err) {

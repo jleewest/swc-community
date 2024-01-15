@@ -26,9 +26,6 @@ export default function Dashboard() {
       </div>
       <div className='your-groups'>
         <h2>Your Groups</h2>
-        <Link to='/topics'>
-          <button className='primary-button'>Group</button>
-        </Link>
       </div>
     </div>
   );

@@ -17,8 +17,11 @@ async function getUsers(req, res) {
 async function postUser(req, res) {
   try {
     const user = req.body;
-    const savedUser = await Schema.create(user);
-    res.json(savedUser);
+    const findUser = await Schema.findOne({ where: { clerkId: id } });
+    if (findUser === 'null') {
+      const savedUser = await Schema.create(user);
+      res.json(savedUser);
+    }
     res.status(201);
   } catch (err) {
     res.sendStatus(500);

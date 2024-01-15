@@ -14,7 +14,6 @@ export async function getTopicsById(id) {
   try {
     const response = await fetch(`${BASE_URL}/topics/${id}`);
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (e) {
     console.log(e);

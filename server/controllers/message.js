@@ -50,9 +50,10 @@ async function deleteMessage(req, res) {
 async function editMessage(req, res) {
   try {
     const id = req.params.id;
-    const message = await Schema.findOne({ where: { id: id } });
-    await message.update({ body: req.body.body });
-    await message.save();
+    const message = await Schema.update(
+      { body: req.body.body },
+      { where: { id: id } }
+    );
     res.json(message);
     res.status(200);
   } catch (err) {
