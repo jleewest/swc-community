@@ -14,7 +14,6 @@ import { postUser } from './apiServices/user';
 export default function Display() {
   //ADD NEW USERS TO DB
   const { user } = useUser();
-  console.log(user);
 
   useEffect(() => {
     const newUser = {

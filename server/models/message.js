@@ -8,6 +8,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    UserClerkId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   });
 
   MessageSchema.associate = function (db) {

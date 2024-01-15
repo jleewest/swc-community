@@ -8,28 +8,17 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
-    //user association:
-    //created_by: {
-    //  type: DataTypes.STRING,
-    //  allowNull: false,
-    //},
-
     GroupId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    UserClerkId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   });
   TopicSchema.associate = function (db) {
-    TopicSchema.belongsTo(
-      db.Users
-      //  , {
-      //  foreignKey: 'created_by',
-      //  targetKey: 'username',
-      //  as: 'user',
-      //  constraints: false,
-      //}
-    );
+    TopicSchema.belongsTo(db.Users);
     TopicSchema.hasMany(db.Messages);
     TopicSchema.belongsTo(db.Groups);
   };

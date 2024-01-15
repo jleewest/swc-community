@@ -18,6 +18,7 @@ export async function postMessage(message) {
       body: JSON.stringify({
         body: message.body,
         TopicId: message.TopicId,
+        UserClerkId: message.UserClerkId,
       }),
     });
     const data = await response.json();
@@ -47,6 +48,7 @@ export async function changeMessage(message, id) {
       body: JSON.stringify({
         body: message.body,
         TopicId: message.TopicId,
+        UserClerkId: message.UserClerkId,
       }),
     });
     const data = await response.json();

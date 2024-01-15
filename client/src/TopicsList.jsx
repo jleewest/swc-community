@@ -4,12 +4,14 @@ import { sortNewestFirst } from './utils/sortUtil';
 import TopicDetails from './TopicDetails';
 import './TopicsList.css';
 import { Link, useParams } from 'react-router-dom';
+import { useUser } from '@clerk/clerk-react';
 
 //FORMAT FOR LIST OF TOPICS
 
 export default function TopicsList() {
   const [topics, setTopics] = useState([]);
   const groupId = useParams();
+  const { user } = useUser();
 
   useEffect(() => {
     getTopicsById(groupId.id).then((data) => {
@@ -19,10 +21,12 @@ export default function TopicsList() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    console.log(user);
     const newTopic = {
       title: event.target[0].value,
       body: event.target[1].value,
       GroupId: groupId.id,
+      UserClerkId: user.id,
     };
 
     postTopic(newTopic).then((data) => {

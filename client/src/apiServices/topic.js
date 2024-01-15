@@ -29,6 +29,7 @@ export async function postTopic(topic) {
         title: topic.title,
         body: topic.body,
         GroupId: topic.GroupId,
+        UserClerkId: topic.UserClerkId,
       }),
     });
     const data = await response.json();
@@ -58,6 +59,7 @@ export async function deleteTopic(id) {
 //      body: JSON.stringify({
 //        title: topic.title,
 //        body: topic.body,
+//UserClerkId: topic.UserClerkId,
 //      }),
 //    });
 //    const data = await response.json();

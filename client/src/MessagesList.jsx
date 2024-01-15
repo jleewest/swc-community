@@ -6,6 +6,7 @@ import { sortOldestFirst } from './utils/sortUtil';
 import MessageDetails from './MessageDetails';
 import moment from 'moment';
 import './MessagesList.css';
+import { useUser } from '@clerk/clerk-react';
 
 //FORMAT FOR LIST OF ALL MESSAGES FOR EACH TOPIC
 
@@ -13,6 +14,7 @@ export default function MessagesList() {
   const [topic, setTopic] = useState([]);
   const [messages, setMessages] = useState([]);
   const params = useParams();
+  const { user } = useUser();
 
   useEffect(() => {
     getTopicsById(params.groupId).then((data) => {
@@ -29,6 +31,7 @@ export default function MessagesList() {
     const newMessage = {
       body: event.target[0].value,
       TopicId: params.topicId,
+      UserClerkId: user.id,
     };
 
     postMessage(newMessage).then((data) => {
