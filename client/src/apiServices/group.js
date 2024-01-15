@@ -10,6 +10,16 @@ export async function getGroups() {
   }
 }
 
+export async function getGroupById(id) {
+  try {
+    const response = await fetch(`${BASE_URL}/topics/${id}`);
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 export async function postGroup(group) {
   try {
     const response = await fetch(`${BASE_URL}/groups/`, {

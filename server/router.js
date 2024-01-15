@@ -1,13 +1,19 @@
 'use strict';
 
 const router = require('express').Router();
-const messageController = require('./controllers/message');
-const topicController = require('./controllers/topic');
 const userController = require('./controllers/user');
+const groupController = require('./controllers/user');
+const topicController = require('./controllers/topic');
+const messageController = require('./controllers/message');
 
 //USER ROUTES
 router.get('/users', userController.getUsers);
 router.post('/users', userController.postUser);
+
+//GROUP ROUTES
+router.get('/groups', groupController.getGroups);
+router.get('/groups/:id', groupController.getGroupById);
+router.post('/groups', groupController.postGroup);
 
 //TOPIC ROUTES
 router.get('/topics', topicController.getTopics);
