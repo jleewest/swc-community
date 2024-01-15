@@ -14,8 +14,13 @@
   text-align: left;
 }
 
-.Navbar .nav-routes li:hover,
-a:hover {
+.Navbar .nav-routes li:hover {
+  background-color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  color: var(--primary-color);
+}
+
+.Navbar .nav-routes a:hover {
   background-color: var(--accent-color);
   border-bottom: 2px solid var(--accent-color);
   color: var(--primary-color);

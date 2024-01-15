@@ -6,6 +6,7 @@ import GroupsList from './GroupsList';
 import TopicsList from './TopicsList';
 import MessagesList from './MessagesList';
 import GroupExpectations from './GroupExpectations';
+import NewGroupForm from './NewGroupForm';
 
 //DISPLAY STRUCTURE WITHIN WHICH ALL COMPONENTS ARE LOADED
 
@@ -25,8 +26,9 @@ export default function Display() {
           <Routes>
             <Route path='/' element={<Dashboard />} />
             <Route path='/expectations' element={<GroupExpectations />} />
-            <Route path='/topics' element={<TopicsList />} />
             <Route path='/groups' element={<GroupsList />} />
+            <Route path='/new-group' element={<NewGroupForm />} />
+            <Route path='/topics' element={<TopicsList />} />
             <Route path='/messages/:id' element={<MessagesList />} />
           </Routes>
         </div>

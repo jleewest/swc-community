@@ -1,4 +1,5 @@
 import './GroupsList.css';
+import { Link } from 'react-router-dom';
 
 //FORMAT FOR LIST OF ALL GROUPS
 
@@ -16,9 +17,11 @@ export default function GroupsList() {
           </form>
         </div>
         <div>
-          <button className='primary-button new-group-button'>
-            Request new group
-          </button>
+          <Link to='/new-group'>
+            <button className='primary-button new-group-button'>
+              Request new group
+            </button>
+          </Link>
         </div>
       </div>
     </div>

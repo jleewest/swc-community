@@ -39,7 +39,7 @@ export default function TopicsList() {
       >
         <div className='topic'>
           <div className='main-label'>
-            Provide a brief header for your topic{' '}
+            Provide a brief header for your topic
           </div>
           <input
             type='text'
