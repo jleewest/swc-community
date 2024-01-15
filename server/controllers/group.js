@@ -29,8 +29,8 @@ async function getGroupById(req, res) {
 async function postGroup(req, res) {
   try {
     const group = req.body;
-    const savedTopic = await Schema.create(group);
-    res.json(savedTopic);
+    const savedGroup = await Schema.create(group);
+    res.json(savedGroup);
     res.status(201);
   } catch (err) {
     res.sendStatus(500);

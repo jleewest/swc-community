@@ -31,7 +31,7 @@ module.exports = function (sequelize, DataTypes) {
   UserSchema.associate = function (db) {
     UserSchema.hasMany(db.Messages);
     UserSchema.hasMany(db.Topics);
-    UserSchema.belongsToMany(db.Groups, { through: User_Groups });
+    UserSchema.belongsToMany(db.Groups, { through: db.User_Groups });
   };
 
   return UserSchema;
