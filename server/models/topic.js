@@ -15,11 +15,10 @@ module.exports = function (sequelize, DataTypes) {
     //  allowNull: false,
     //},
 
-    //group association:
-    //group_id: {
-    //  type: DataTypes.INTEGER,
-    //  allowNull: false,
-    //},
+    GroupId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   });
   TopicSchema.associate = function (db) {
     TopicSchema.belongsTo(
@@ -32,7 +31,7 @@ module.exports = function (sequelize, DataTypes) {
       //}
     );
     TopicSchema.hasMany(db.Messages);
-    //TopicSchema.belongsTo(db.Groups);
+    TopicSchema.belongsTo(db.Groups);
   };
   return TopicSchema;
 };

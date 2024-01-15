@@ -29,6 +29,7 @@ export default function Display() {
             <Route path='/groups' element={<GroupsList />} />
             <Route path='/new-group' element={<NewGroupForm />} />
             <Route path='/topics' element={<TopicsList />} />
+            <Route path='/topics/:id' element={<TopicsList />} />
             <Route path='/messages/:id' element={<MessagesList />} />
           </Routes>
         </div>

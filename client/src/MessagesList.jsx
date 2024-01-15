@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { getTopicById } from './apiServices/topic';
+import { getTopicsById } from './apiServices/topic';
 import { postMessage, getMessagesByTopicId } from './apiServices/message';
 import { useState, useEffect } from 'react';
 import { sortOldestFirst } from './utils/sortUtil';
@@ -15,13 +15,15 @@ export default function MessagesList() {
   const topicId = useParams();
 
   useEffect(() => {
-    getTopicById(topicId.id).then((data) => {
+    getTopicsById(topicId.id).then((data) => {
       setTopic(data);
     });
     getMessagesByTopicId(topicId.id).then((data) => {
       setMessages(sortOldestFirst(data));
     });
   }, [topicId]);
+
+  console.log(topic);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -44,17 +46,17 @@ export default function MessagesList() {
       {/* TOPIC POST */}
       <div className='topic-container accent-box-design'>
         <div className='topic-header'>
-          <div className='title'>{topic.title}</div>
+          <div className='title'>{topic[0].title}</div>
           <div>
             <button className='primary-button'>🤍 Save</button>
             <button className='primary-button'> 🏳️ Report</button>
           </div>
         </div>
-        <div className='topic-body'>{topic.body}</div>
+        <div className='topic-body'>{topic[0].body}</div>
         <div className='footer'>
           <span className='comment'>💬 {messages.length} Comments</span>
           <span className='topic-creator'>
-            Discussion Started on {moment(topic.createdAt).format('LLLL')}
+            Discussion Started on {moment(topic[0].createdAt).format('LLLL')}
           </span>
         </div>
       </div>

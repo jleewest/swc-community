@@ -10,10 +10,11 @@ export async function getTopics() {
   }
 }
 
-export async function getTopicById(id) {
+export async function getTopicsById(id) {
   try {
     const response = await fetch(`${BASE_URL}/topics/${id}`);
     const data = await response.json();
+    console.log(data);
     return data;
   } catch (e) {
     console.log(e);
@@ -28,6 +29,7 @@ export async function postTopic(topic) {
       body: JSON.stringify({
         title: topic.title,
         body: topic.body,
+        GroupId: topic.GroupId,
       }),
     });
     const data = await response.json();

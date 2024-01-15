@@ -41,7 +41,7 @@ export default function GroupsList() {
           {groups.length > 0 ? (
             groups.map((group) => {
               return (
-                <Link key={group.id}>
+                <Link to={{ pathname: `/topics/${group.id}` }} key={group.id}>
                   <GroupDetails group={group} />
                 </Link>
               );

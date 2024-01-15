@@ -1,25 +1,28 @@
 import { useState, useEffect } from 'react';
-import { getTopics, postTopic } from './apiServices/topic';
+import { getTopicsById, postTopic } from './apiServices/topic';
 import { sortNewestFirst } from './utils/sortUtil';
 import TopicDetails from './TopicDetails';
 import './TopicsList.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 //FORMAT FOR LIST OF TOPICS
 
 export default function TopicsList() {
   const [topics, setTopics] = useState([]);
+  const groupId = useParams();
+
   useEffect(() => {
-    getTopics().then((data) => {
+    getTopicsById(groupId.id).then((data) => {
       setTopics(sortNewestFirst(data));
     });
-  }, []);
+  }, [groupId]);
 
   function handleSubmit(event) {
     event.preventDefault();
     const newTopic = {
       title: event.target[0].value,
       body: event.target[1].value,
+      GroupId: groupId.id,
     };
 
     postTopic(newTopic).then((data) => {
