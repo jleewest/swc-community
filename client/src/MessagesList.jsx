@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { getTopicsById } from './apiServices/topic';
 import { postMessage, getMessagesByTopicId } from './apiServices/message';
+import { getUserByClerkId } from './apiServices/user';
 import { useState, useEffect } from 'react';
 import { sortOldestFirst } from './utils/sortUtil';
 import MessageDetails from './MessageDetails';
@@ -13,6 +14,7 @@ import { useUser } from '@clerk/clerk-react';
 export default function MessagesList() {
   const [topic, setTopic] = useState([]);
   const [messages, setMessages] = useState([]);
+  const [topicUser, setTopicUser] = useState('');
   const params = useParams();
   const { user } = useUser();
 
@@ -25,9 +27,22 @@ export default function MessagesList() {
     });
   }, [params]);
 
+  useEffect(() => {
+    if (topic.length > 0) {
+      getUserByClerkId(topic[0].UserClerkId).then((data) => {
+        let username;
+        if (data.username) {
+          username = data.username;
+        } else {
+          username = data.firstName + ' ' + data.lastName;
+        }
+        setTopicUser(username);
+      });
+    }
+  }, [topic]);
+
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(event);
     const newMessage = {
       body: event.target[0].value,
       TopicId: params.topicId,
@@ -44,7 +59,7 @@ export default function MessagesList() {
 
   return (
     <div>
-      {topic.length > 0 ? (
+      {topic.length > 0 && topicUser !== undefined ? (
         <div className='MessagesList '>
           {/* TOPIC POST */}
           <div className='topic-container accent-box-design'>
@@ -60,7 +75,7 @@ export default function MessagesList() {
               <span className='comment'>💬 {messages.length} Comments</span>
               <span className='topic-creator'>
                 Discussion Started on{' '}
-                {moment(topic[0].createdAt).format('LLLL')}
+                {moment(topic[0].createdAt).format('LLLL')} by {topicUser}
               </span>
             </div>
           </div>

@@ -6,27 +6,28 @@ import { useState, useEffect } from 'react';
 //FORMAT FOR INDIVIDUAL MESSAGES WITHIN EACH TOPIC
 
 export default function MessageDetails(message) {
-  const [user, setUser] = useState({});
-  let username = '';
+  const [user, setUser] = useState('');
+  //let username = '';
 
+  //get username of post creator
   useEffect(() => {
     getUserByClerkId(message.message.UserClerkId).then((data) => {
-      setUser(data);
+      let username;
+      if (data.username) {
+        username = data.username;
+      } else {
+        username = data.firstName + ' ' + data.lastName;
+      }
+      setUser(username);
     });
   }, [message]);
-
-  if (user.username) {
-    username = user.username;
-  } else {
-    username = user.firstName + ' ' + user.lastName;
-  }
 
   return (
     <div>
       <div className='MessageDetails accent-box-design'>
         <div className='message-header'>
           <div className='message-tag'>
-            <span className='message-creator'>{username}</span>
+            <span className='message-creator'>{user}</span>
             <span>
               Posted on {moment(message.message.createdAt).format('LLLL')}
             </span>
