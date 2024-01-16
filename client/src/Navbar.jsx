@@ -12,8 +12,6 @@ export default function Navbar() {
           <Link to='/'>
             <li className='nav-home'>Home</li>
           </Link>
-          <li>Your Profile</li>
-          <li>Your Groups</li>
           <Link to='/groups'>
             <li>Search Groups</li>
           </Link>

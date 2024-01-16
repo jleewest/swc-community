@@ -18,6 +18,7 @@ export default function MessagesList() {
   const params = useParams();
   const { user } = useUser();
 
+  //set header topic and all messages related to topic
   useEffect(() => {
     getTopicsById(params.groupId).then((data) => {
       setTopic(data);
@@ -27,6 +28,7 @@ export default function MessagesList() {
     });
   }, [params]);
 
+  //set username of topic creator
   useEffect(() => {
     if (topic.length > 0) {
       getUserByClerkId(topic[0].UserClerkId).then((data) => {

@@ -12,7 +12,7 @@ function App() {
             <h2>Writers Club</h2>
             <h3>Community Collaboration Page</h3>
           </div>
-          <SignInButton>
+          <SignInButton redirectUrl='/'>
             <button className='login-button primary-button'>Log In</button>
           </SignInButton>
         </div>
