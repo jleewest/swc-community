@@ -22,10 +22,7 @@ router.put('/groups/:id/edit', groupController.editGroup);
 //USER_GROUP ROUTES
 router.get('/user-group/:id', userGroupController.getGroupsByClerkId);
 router.post('/user-group', userGroupController.postGroupToUser);
-router.delete(
-  '/user-group/:id/delete',
-  userGroupController.deleteGroupFromUser
-);
+router.delete('/user-group/delete', userGroupController.deleteGroupFromUser);
 
 //TOPIC ROUTES
 router.get('/topics', topicController.getTopics);

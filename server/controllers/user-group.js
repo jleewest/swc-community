@@ -37,8 +37,10 @@ async function postGroupToUser(req, res) {
 //need to pass in group as well as user...
 async function deleteGroupFromUser(req, res) {
   try {
-    const ClerkId = req.params.id;
-    await Schema.destroy({ where: { ClerkId: ClerkId } });
+    const userWithGroup = req.body;
+    const GroupId = userWithGroup.GroupId;
+    const ClerkId = userWithGroup.ClerkId;
+    await Schema.destroy({ where: { GroupId: GroupId, ClerkId: ClerkId } });
     req.body = JSON.stringify({
       message: 'Group successfully deleted from User',
     });

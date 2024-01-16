@@ -12,7 +12,6 @@ export async function getGroupsByClerkId(id) {
 
 export async function postGroupToUser(body) {
   try {
-    console.log(body);
     const response = await fetch(`${BASE_URL}/user-group/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -28,10 +27,15 @@ export async function postGroupToUser(body) {
   }
 }
 
-export async function deleteGroupFromUser(id) {
+export async function deleteGroupFromUser(body) {
   try {
-    const response = await fetch(`${BASE_URL}/user-group/${id}/delete`, {
+    const response = await fetch(`${BASE_URL}/user-group/delete`, {
       method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ClerkId: body.ClerkId,
+        GroupId: body.GroupId,
+      }),
     });
     const data = await response.json();
     return data;

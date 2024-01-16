@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 import { getTopicsById, postTopic } from './apiServices/topic';
 import { getGroupById } from './apiServices/group';
-import { postGroupToUser } from './apiServices/user-group';
+import {
+  postGroupToUser,
+  getGroupsByClerkId,
+  deleteGroupFromUser,
+} from './apiServices/user-group';
 import { sortNewestFirst } from './utils/sortUtil';
 import TopicDetails from './TopicDetails';
 import './TopicsList.css';
@@ -13,6 +17,7 @@ import { useUser } from '@clerk/clerk-react';
 export default function TopicsList() {
   const [topics, setTopics] = useState([]);
   const [groupTitle, setGroupTitle] = useState('');
+  const [userGroups, setUserGroups] = useState([]);
   const groupId = useParams();
   const { user } = useUser();
 
@@ -29,6 +34,13 @@ export default function TopicsList() {
       setGroupTitle(data.title);
     });
   }, [groupId]);
+
+  //get user groups
+  useEffect(() => {
+    getGroupsByClerkId(user.id).then((data) => {
+      setUserGroups(data);
+    });
+  }, [user]);
 
   //post new topic
   function handleSubmit(event) {
@@ -48,14 +60,33 @@ export default function TopicsList() {
     event.target.reset();
   }
 
-  //create user-group link to add group to homepage
-  function handleClick() {
+  //toggle user-group link
+  async function handleClick() {
     const newUserGroup = {
       ClerkId: user.id,
       GroupId: groupId.id,
     };
-    postGroupToUser(newUserGroup);
+
+    if (
+      userGroups.some((group) => group.GroupId === Number(newUserGroup.GroupId))
+    ) {
+      console.log('removed');
+      await deleteGroupFromUser(newUserGroup);
+      setUserGroups(
+        userGroups.filter((group) => group.GroupId !== newUserGroup.GroupId)
+      );
+      console.log(userGroups);
+    } else {
+      console.log('added');
+      await postGroupToUser(newUserGroup);
+      setUserGroups([...userGroups, newUserGroup]);
+    }
+    console.log(userGroups);
   }
+
+  useEffect(() => {
+    console.log('Updated User Groups:', userGroups);
+  }, [userGroups]);
 
   return (
     <div>
