@@ -28,7 +28,6 @@ async function postGroupToUser(req, res) {
 
 //need to pass in group as well as user...
 async function deleteGroupFromUser(req, res) {
-  console.log('DELETE controller');
   try {
     const userWithGroup = req.body;
     const GroupId = userWithGroup.GroupId;
@@ -36,11 +35,9 @@ async function deleteGroupFromUser(req, res) {
     const saved = await Schema.destroy({
       where: { GroupId: GroupId, ClerkId: ClerkId },
     });
-    console.log('DELETE 2nd controller');
     req.body = JSON.stringify({
       message: 'Group successfully deleted from User',
     });
-    console.log('DELETE 3rd controller');
     res.json(saved);
   } catch (err) {
     console.error(err);

@@ -17,7 +17,6 @@ import { useUser } from '@clerk/clerk-react';
 export default function TopicsList() {
   const [topics, setTopics] = useState([]);
   const [groupTitle, setGroupTitle] = useState('');
-  //const [userGroups, setUserGroups] = useState([]);
   const [pairUserWithGroup, setPairUserWithGroup] = useState({});
   const [isActive, setIsActive] = useState(false);
   const groupId = useParams();
@@ -48,13 +47,10 @@ export default function TopicsList() {
 
   //check if pairUserWithGroup matches existing UserGroup and set respective 'active' state
   useEffect(() => {
-    const getUser = async () => {
+    const setFollowStatus = async () => {
       await getGroupsByClerkId(user.id).then((userGroupPair) => {
-        //setUserGroups(userGroupPair);
-        console.log(userGroupPair);
         if (
           userGroupPair.some((group) => {
-            console.log(group.GroupId, groupId.id);
             return group.GroupId === Number(groupId.id);
           })
         ) {
@@ -68,21 +64,7 @@ export default function TopicsList() {
         }
       });
     };
-    getUser();
-    //if (
-    //  userGroups.some((group) => {
-    //    console.log(group.GroupId, pairUserWithGroup.GroupId);
-    //    return group.GroupId === Number(pairUserWithGroup.GroupId);
-    //  })
-    //) {
-    //  setIsActive(true);
-    //  console.log('true -- user is already following');
-    //  return;
-    //} else {
-    //  setIsActive(false);
-    //  console.log('false -- not currently following');
-    //  return;
-    //}
+    setFollowStatus();
   }, [user]);
 
   //post new topic
@@ -105,8 +87,6 @@ export default function TopicsList() {
 
   //toggle user-group link
   async function handleClick() {
-    console.log('handled!', isActive);
-
     if (isActive === true) {
       console.log('unfollow');
       await deleteGroupFromUser(pairUserWithGroup);

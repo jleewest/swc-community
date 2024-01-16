@@ -22,7 +22,6 @@ export async function getUserByClerkId(id) {
 
 export async function postUser(user) {
   try {
-    console.log('😜😜😜');
     const response = await fetch(`${BASE_URL}/users/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
