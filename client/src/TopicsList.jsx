@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getTopicsById, postTopic } from './apiServices/topic';
 import { getGroupById } from './apiServices/group';
+import { postGroupToUser } from './apiServices/user-group';
 import { sortNewestFirst } from './utils/sortUtil';
 import TopicDetails from './TopicDetails';
 import './TopicsList.css';
@@ -47,12 +48,23 @@ export default function TopicsList() {
     event.target.reset();
   }
 
+  //create user-group link to add group to homepage
+  function handleClick() {
+    const newUserGroup = {
+      ClerkId: user.id,
+      GroupId: groupId.id,
+    };
+    postGroupToUser(newUserGroup);
+  }
+
   return (
     <div>
       {groupTitle !== undefined ? (
         <div className='TopicsList'>
           <div className='like-button'>
-            <button className='primary-button '>🤍 Add to Home</button>
+            <button onClick={handleClick} className='primary-button'>
+              🤍 Add to Home
+            </button>
           </div>
           <div className='display-header accent-box-design'>{groupTitle} </div>
           {/* NEW TOPIC FORM */}

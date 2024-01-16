@@ -2,6 +2,7 @@
 
 const router = require('express').Router();
 const userController = require('./controllers/user');
+const userGroupController = require('./controllers/user-group');
 const groupController = require('./controllers/group');
 const topicController = require('./controllers/topic');
 const messageController = require('./controllers/message');
@@ -17,6 +18,14 @@ router.get('/groups/:id', groupController.getGroupById);
 router.post('/groups', groupController.postGroup);
 router.delete('/groups/:id/delete', groupController.deleteGroup);
 router.put('/groups/:id/edit', groupController.editGroup);
+
+//USER_GROUP ROUTES
+router.get('/user-group/:id', userGroupController.getGroupsByClerkId);
+router.post('/user-group', userGroupController.postGroupToUser);
+router.delete(
+  '/user-group/:id/delete',
+  userGroupController.deleteGroupFromUser
+);
 
 //TOPIC ROUTES
 router.get('/topics', topicController.getTopics);

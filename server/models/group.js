@@ -14,7 +14,6 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
   GroupSchema.associate = function (db) {
-    GroupSchema.belongsToMany(db.Users, { through: db.User_Groups });
     GroupSchema.hasMany(db.Topics);
   };
   return GroupSchema;
