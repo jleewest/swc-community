@@ -67,8 +67,8 @@ a:visited {
 
 /* LOGIN PAGE */
 body {
-  width: 100vw;
-  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
   background-image: url(./img/book-login.jpg);
   background-repeat: no-repeat;
   background-size: cover;
