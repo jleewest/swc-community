@@ -51,7 +51,10 @@ export default function TopicsList() {
     <div>
       {groupTitle !== undefined ? (
         <div className='TopicsList'>
-          <div className='display-header accent-box-design'>{groupTitle}</div>
+          <div className='like-button'>
+            <button className='primary-button '>🤍 Add to Home</button>
+          </div>
+          <div className='display-header accent-box-design'>{groupTitle} </div>
           {/* NEW TOPIC FORM */}
           <form
             onSubmit={handleSubmit}

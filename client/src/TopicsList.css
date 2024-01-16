@@ -5,6 +5,17 @@
   font-family: 'Great Vibes', cursive;
 }
 
+.TopicsList .like-button {
+  text-align: right;
+  position: relative;
+  top: 1rem;
+  left: 1rem;
+}
+
+.TopicsList .primary-button {
+  padding: 1rem;
+}
+
 /* NEW TOPIC FORM */
 .TopicsList .new-topic-form {
   border-width: 0.5rem;

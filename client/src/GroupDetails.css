@@ -2,7 +2,7 @@
   border: 0.2rem solid var(--primary-color);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0.6rem;
   padding: 0.5rem 0.5rem;
   height: 18rem;
@@ -10,7 +10,13 @@
 }
 
 .GroupDetails .group-details-container:hover {
-  border: 0.2rem solid var(--tertiary-color);
+  border: 0.2rem solid var(--accent-color);
+}
+
+/* HEADER */
+.GroupDetails .group-details-header {
+  padding: 0.75rem 0;
+  text-align: center;
 }
 
 /* IMAGE */
@@ -28,7 +34,7 @@
 
 /* GROUP TITLE AND DESCRIPTION */
 .GroupDetails .group-details-body {
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
 }
 
 .GroupDetails .group-details-body h2 {
@@ -38,7 +44,8 @@
 
 .GroupDetails .group-details-body p {
   font-size: 0.75rem;
-  padding: 0.25rem 0.25rem;
+  padding: 0.5rem 0.5rem;
+  line-height: 1rem;
 }
 
 /* submit button */
