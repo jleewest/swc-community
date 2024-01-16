@@ -79,7 +79,6 @@ export default function TopicsList() {
       GroupId: groupId.id,
       UserClerkId: user.id,
     };
-
     postTopic(newTopic).then((data) => {
       setTopics((prev) => {
         return sortNewestFirst([...prev, data]);

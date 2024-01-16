@@ -2,18 +2,30 @@ import './GroupsList.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getGroups } from './apiServices/group';
+import { getGroupsByClerkId } from './apiServices/user-group';
 import { sortNewestFirst } from './utils/sortUtil';
 import GroupDetails from './GroupDetails';
+import { useUser } from '@clerk/clerk-react';
 
 //FORMAT FOR LIST OF ALL GROUPS
 
 export default function GroupsList() {
   const [groups, setGroups] = useState([]);
+  const { user } = useUser();
+
+  //filters out groups user is already following from the groups page
   useEffect(() => {
-    getGroups().then((data) => {
-      setGroups(sortNewestFirst(data));
-    });
-  }, []);
+    const filterGroups = async () => {
+      const userData = await getGroupsByClerkId(user.id);
+      const allGroups = await getGroups();
+      const filteredGroups = allGroups.filter(
+        (group) => !userData.some((userGroup) => userGroup.GroupId === group.id)
+      );
+      setGroups(sortNewestFirst(filteredGroups));
+    };
+
+    filterGroups();
+  }, [user]);
 
   return (
     <div className='GroupsList'>
