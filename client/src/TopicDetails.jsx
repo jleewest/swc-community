@@ -19,10 +19,6 @@ export default function TopicDetails(topic) {
       <div className='topic-container'>
         <div className='header'>
           <div className='title'>{topic.topic.title}</div>
-          <div>
-            <button className='primary-button'>🤍 Save</button>
-            <button className='primary-button'> 🏳️ Report</button>
-          </div>
         </div>
         <div className='body'>{topic.topic.body}</div>
         <div className='footer'>

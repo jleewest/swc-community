@@ -129,7 +129,7 @@ export default function TopicsList() {
                 required
               />
             </div>
-            <div className='body'>
+            <div className='list-body'>
               <div className='main-label'>Topic details </div>
               <textarea
                 type='textarea'
