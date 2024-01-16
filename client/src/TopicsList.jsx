@@ -18,6 +18,7 @@ export default function TopicsList() {
   const [topics, setTopics] = useState([]);
   const [groupTitle, setGroupTitle] = useState('');
   const [pairUserWithGroup, setPairUserWithGroup] = useState({});
+  const [toggleButton, setToggleButton] = useState('');
   const [isActive, setIsActive] = useState(false);
   const groupId = useParams();
   const { user } = useUser();
@@ -55,10 +56,12 @@ export default function TopicsList() {
           })
         ) {
           setIsActive(true);
+          setToggleButton('🤍 Following!');
           console.log('true -- user is already following');
           return;
         } else {
           setIsActive(false);
+          setToggleButton('🤍 Add to Home');
           console.log('false -- not currently following');
           return;
         }
@@ -89,9 +92,11 @@ export default function TopicsList() {
   async function handleClick() {
     if (isActive === true) {
       console.log('unfollow');
+      setToggleButton('🤍 Add to Home');
       await deleteGroupFromUser(pairUserWithGroup);
     } else {
       console.log('follow');
+      setToggleButton('🤍 Following!');
       await postGroupToUser(pairUserWithGroup);
     }
     console.log('🦖', isActive);
@@ -100,11 +105,11 @@ export default function TopicsList() {
 
   return (
     <div>
-      {groupTitle !== undefined ? (
+      {groupTitle !== undefined && setToggleButton.length > 0 ? (
         <div className='TopicsList'>
           <div className='like-button'>
             <button onClick={handleClick} className='primary-button'>
-              🤍 Add to Home
+              {toggleButton}
             </button>
           </div>
           <div className='display-header accent-box-design'>{groupTitle} </div>
