@@ -1,9 +1,36 @@
 import { Link } from 'react-router-dom';
+import { getGroupsByClerkId } from './apiServices/user-group';
+import { getGroupById } from './apiServices/group';
+import { useEffect, useState } from 'react';
+import { sortNewestFirst } from './utils/sortUtil';
+import { useUser } from '@clerk/clerk-react';
+import GroupDetails from './GroupDetails';
 import './Dashboard.css';
 
 //HOMEPAGE
 
 export default function Dashboard() {
+  //get groups user is following
+  const [userGroups, setUserGroups] = useState([]);
+  const [groups, setGroups] = useState([]);
+  const { user } = useUser();
+
+  useEffect(() => {
+    getGroupsByClerkId(user.id).then((data) => {
+      setUserGroups(data);
+    });
+  }, [user]);
+
+  useEffect(() => {
+    if (userGroups.length > 0) {
+      Promise.all(userGroups.map((group) => getGroupById(group.GroupId))).then(
+        (data) => {
+          setGroups(sortNewestFirst(data));
+        }
+      );
+    }
+  }, [userGroups]);
+
   return (
     <div className='Dashboard'>
       <div className='welcome-message'>
@@ -24,8 +51,22 @@ export default function Dashboard() {
           </Link>
         </p>
       </div>
-      <div className='your-groups'>
-        <h2>Your Groups</h2>
+      <div>
+        <h2 className='your-groups'>Your Groups</h2>
+        {/* List of user's groups */}
+        <div className='group-display'>
+          {groups.length > 0 ? (
+            groups.map((group) => {
+              return (
+                <Link to={{ pathname: `/topics/${group.id}` }} key={group.id}>
+                  <GroupDetails group={group} />
+                </Link>
+              );
+            })
+          ) : (
+            <p>There are no groups yet</p>
+          )}
+        </div>
       </div>
     </div>
   );

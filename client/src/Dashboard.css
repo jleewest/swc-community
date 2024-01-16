@@ -22,7 +22,12 @@
 }
 
 /* YOUR GROUPS */
-.Dashboard .your-groups h2 {
-  margin: 3rem 0;
+.Dashboard .your-groups {
+  margin: 3rem 0 1rem 0;
   font-size: 2rem;
+}
+
+.Dashboard .group-display {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
 }
