@@ -17,16 +17,11 @@ import { useUser } from '@clerk/clerk-react';
 export default function TopicsList() {
   const [topics, setTopics] = useState([]);
   const [groupTitle, setGroupTitle] = useState('');
-  const [userGroups, setUserGroups] = useState([]);
+  //const [userGroups, setUserGroups] = useState([]);
+  const [pairUserWithGroup, setPairUserWithGroup] = useState({});
+  const [isActive, setIsActive] = useState(false);
   const groupId = useParams();
   const { user } = useUser();
-
-  //get topics for group
-  useEffect(() => {
-    getTopicsById(groupId.id).then((data) => {
-      setTopics(sortNewestFirst(data));
-    });
-  }, [groupId]);
 
   //get group title
   useEffect(() => {
@@ -35,11 +30,59 @@ export default function TopicsList() {
     });
   }, [groupId]);
 
-  //get user groups
+  //get topics for group
   useEffect(() => {
-    getGroupsByClerkId(user.id).then((data) => {
-      setUserGroups(data);
+    getTopicsById(groupId.id).then((data) => {
+      setTopics(sortNewestFirst(data));
     });
+  }, [groupId]);
+
+  //set pairUserWithGroup
+  useEffect(() => {
+    const newUserGroup = {
+      ClerkId: user.id,
+      GroupId: groupId.id,
+    };
+    setPairUserWithGroup(newUserGroup);
+  }, []);
+
+  //check if pairUserWithGroup matches existing UserGroup and set respective 'active' state
+  useEffect(() => {
+    const getUser = async () => {
+      await getGroupsByClerkId(user.id).then((userGroupPair) => {
+        //setUserGroups(userGroupPair);
+        console.log(userGroupPair);
+        if (
+          userGroupPair.some((group) => {
+            console.log(group.GroupId, groupId.id);
+            return group.GroupId === Number(groupId.id);
+          })
+        ) {
+          setIsActive(true);
+          console.log('true -- user is already following');
+          return;
+        } else {
+          setIsActive(false);
+          console.log('false -- not currently following');
+          return;
+        }
+      });
+    };
+    getUser();
+    //if (
+    //  userGroups.some((group) => {
+    //    console.log(group.GroupId, pairUserWithGroup.GroupId);
+    //    return group.GroupId === Number(pairUserWithGroup.GroupId);
+    //  })
+    //) {
+    //  setIsActive(true);
+    //  console.log('true -- user is already following');
+    //  return;
+    //} else {
+    //  setIsActive(false);
+    //  console.log('false -- not currently following');
+    //  return;
+    //}
   }, [user]);
 
   //post new topic
@@ -62,31 +105,18 @@ export default function TopicsList() {
 
   //toggle user-group link
   async function handleClick() {
-    const newUserGroup = {
-      ClerkId: user.id,
-      GroupId: groupId.id,
-    };
+    console.log('handled!', isActive);
 
-    if (
-      userGroups.some((group) => group.GroupId === Number(newUserGroup.GroupId))
-    ) {
-      console.log('removed');
-      await deleteGroupFromUser(newUserGroup);
-      setUserGroups(
-        userGroups.filter((group) => group.GroupId !== newUserGroup.GroupId)
-      );
-      console.log(userGroups);
+    if (isActive === true) {
+      console.log('unfollow');
+      await deleteGroupFromUser(pairUserWithGroup);
     } else {
-      console.log('added');
-      await postGroupToUser(newUserGroup);
-      setUserGroups([...userGroups, newUserGroup]);
+      console.log('follow');
+      await postGroupToUser(pairUserWithGroup);
     }
-    console.log(userGroups);
+    console.log('🦖', isActive);
+    setIsActive((prevState) => !prevState);
   }
-
-  useEffect(() => {
-    console.log('Updated User Groups:', userGroups);
-  }, [userGroups]);
 
   return (
     <div>

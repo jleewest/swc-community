@@ -18,16 +18,8 @@ async function getGroupsByClerkId(req, res) {
 async function postGroupToUser(req, res) {
   try {
     const userWithGroup = req.body;
-    const GroupId = userWithGroup.GroupId;
-    const ClerkId = userWithGroup.ClerkId;
-    const findUserWithGroup = await Schema.findOne({
-      where: { GroupId: GroupId, ClerkId: ClerkId },
-    });
-    if (findUserWithGroup === null) {
-      const saved = await Schema.create(userWithGroup);
-      res.json(saved);
-    }
-    res.status(201);
+    const saved = await Schema.create(userWithGroup);
+    res.json(saved);
   } catch (err) {
     res.sendStatus(500);
     console.log(err);
@@ -36,15 +28,20 @@ async function postGroupToUser(req, res) {
 
 //need to pass in group as well as user...
 async function deleteGroupFromUser(req, res) {
+  console.log('DELETE controller');
   try {
     const userWithGroup = req.body;
     const GroupId = userWithGroup.GroupId;
     const ClerkId = userWithGroup.ClerkId;
-    await Schema.destroy({ where: { GroupId: GroupId, ClerkId: ClerkId } });
+    const saved = await Schema.destroy({
+      where: { GroupId: GroupId, ClerkId: ClerkId },
+    });
+    console.log('DELETE 2nd controller');
     req.body = JSON.stringify({
       message: 'Group successfully deleted from User',
     });
-    res.status(200);
+    console.log('DELETE 3rd controller');
+    res.json(saved);
   } catch (err) {
     console.error(err);
     res.sendStatus(500);

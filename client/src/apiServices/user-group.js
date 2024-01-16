@@ -29,6 +29,7 @@ export async function postGroupToUser(body) {
 
 export async function deleteGroupFromUser(body) {
   try {
+    console.log('DELETE API');
     const response = await fetch(`${BASE_URL}/user-group/delete`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
@@ -37,7 +38,11 @@ export async function deleteGroupFromUser(body) {
         GroupId: body.GroupId,
       }),
     });
+
+    console.log('2nd delete API', response);
     const data = await response.json();
+
+    console.log('3rd delete API');
     return data;
   } catch (e) {
     console.log(e);
