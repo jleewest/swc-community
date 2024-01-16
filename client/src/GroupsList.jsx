@@ -17,6 +17,7 @@ export default function GroupsList() {
 
   return (
     <div className='GroupsList'>
+      <div className='display-header accent-box-design'>Groups</div>
       {/* MENU BAR */}
       <div className='groups-menu-bar'>
         <div>

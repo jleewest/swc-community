@@ -30,6 +30,7 @@
 .Display .route-display {
   background-color: var(--primary-color);
   min-height: 100vh;
+  padding: 3rem 5rem;
 }
 
 /* NAVBAR */

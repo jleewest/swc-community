@@ -1,6 +1,13 @@
 /* CONTAINER FOR MESSAGE POST */
 .MessagesList {
-  margin: 3rem 5rem;
+  margin: 0 5rem;
+}
+
+/* DISPLAY HEADER */
+.MessagesList .display-header {
+  font-size: 3rem;
+  margin: 0 -0.25rem 2rem -0.25rem;
+  font-family: 'Great Vibes', cursive;
 }
 
 /* TOPIC POST */
@@ -81,4 +88,8 @@
 
 .MessagesList .new-comment-form button:hover {
   border: 2px solid var(--accent-color);
+}
+
+.MessagesList .no-posts {
+  margin: 0 5rem;
 }

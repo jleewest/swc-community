@@ -13,7 +13,7 @@ export default function Navbar() {
             <li className='nav-home'>Home</li>
           </Link>
           <Link to='/groups'>
-            <li>Search Groups</li>
+            <li>Groups</li>
           </Link>
           <li>Members</li>
           <li>FAQs</li>
