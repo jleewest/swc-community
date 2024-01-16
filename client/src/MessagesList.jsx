@@ -20,11 +20,27 @@ export default function MessagesList() {
   const params = useParams();
   const { user } = useUser();
 
-  //set header topic and all messages related to topic
+  //get group title
   useEffect(() => {
-    getTopicsById(params.groupId).then((data) => {
-      setTopic(data);
+    getGroupById(params.groupId).then((data) => {
+      setGroupTitle(data.title);
     });
+  }, [params]);
+
+  //set topic and all messages related to topic
+  useEffect(() => {
+    const filterTopics = async () => {
+      const getTopics = await getTopicsById(params.groupId);
+      const filteredTopics = getTopics.filter((group) => {
+        return group.id === Number(params.topicId);
+      });
+      setTopic(filteredTopics);
+    };
+    filterTopics();
+  }, [params]);
+
+  //
+  useEffect(() => {
     getMessagesByTopicId(params.topicId).then((data) => {
       setMessages(sortOldestFirst(data));
     });
@@ -44,13 +60,6 @@ export default function MessagesList() {
       });
     }
   }, [topic]);
-
-  //get group title
-  useEffect(() => {
-    getGroupById(params.groupId).then((data) => {
-      setGroupTitle(data.title);
-    });
-  }, [params]);
 
   function handleSubmit(event) {
     event.preventDefault();
