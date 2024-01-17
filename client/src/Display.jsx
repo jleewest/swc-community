@@ -56,7 +56,11 @@ export default function Display() {
         </main>
         <footer>
           Open Source Code by{' '}
-          <a href='#' target='_blank'>
+          <a
+            href='https://github.com/jleewest/swc-community.git'
+            rel='noreferrer'
+            target='_blank'
+          >
             Jenna Westendorf
           </a>
         </footer>
