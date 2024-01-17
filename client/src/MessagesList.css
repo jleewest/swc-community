@@ -89,7 +89,3 @@
 .MessagesList .new-comment-form button:hover {
   border: 2px solid var(--accent-color);
 }
-
-.MessagesList .no-posts {
-  margin: 0 5rem;
-}

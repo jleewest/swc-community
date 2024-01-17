@@ -165,12 +165,12 @@ export default function TopicsList() {
                 );
               })
             ) : (
-              <p className='no-posts'>There are no topics yet</p>
+              <p className='no-posts'>There are no topics yet...</p>
             )}
           </div>
         </div>
       ) : (
-        <p>Loading</p>
+        <p>Loading...</p>
       )}
     </div>
   );
