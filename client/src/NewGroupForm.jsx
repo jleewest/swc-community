@@ -8,6 +8,7 @@ import img from './img/group-pg.jpg';
 export default function NewGroupForm() {
   const navigate = useNavigate();
 
+  //post new group
   function handleSubmit(event) {
     event.preventDefault();
     const newGroup = {

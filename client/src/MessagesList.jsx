@@ -65,6 +65,7 @@ export default function MessagesList() {
     }
   }, [topic]);
 
+  //post new message
   function handleSubmit(event) {
     event.preventDefault();
     const newMessage = {
