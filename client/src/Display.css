@@ -61,4 +61,5 @@
 .Display footer a:hover {
   background-color: var(--tertiary-color);
   color: var(--primary-color);
+  text-decoration: underline;
 }

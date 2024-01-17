@@ -90,15 +90,12 @@ export default function TopicsList() {
   //toggle user-group link
   async function handleClick() {
     if (isActive === true) {
-      console.log('unfollow');
       setToggleButton('🤍 Add to Home');
       await deleteGroupFromUser(pairUserWithGroup);
     } else {
-      console.log('follow');
       setToggleButton('🤍 Following!');
       await postGroupToUser(pairUserWithGroup);
     }
-    console.log('🦖', isActive);
     setIsActive((prevState) => !prevState);
   }
 
