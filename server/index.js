@@ -8,7 +8,7 @@ const db = require('./models/db.js');
 const PORT = process.env.PORT;
 const router = require('./router.js');
 
-app.use(cors({ origin: process.env.CORS_ORIGIN }));
+app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 app.use(router);
 
