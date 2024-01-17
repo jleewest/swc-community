@@ -1,14 +1,20 @@
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 
 const config = {
-  host: 'localhost',
-  port: '5000',
+  host: process.env.DATABASE_HOST,
+  port: process.env.DATABASE_PORT,
   dialect: 'postgres',
 };
 
-const sequelize = new Sequelize('swc_app', 'postgres', 'postgres', config);
+const sequelize = new Sequelize(
+  process.env.DATABASE_NAME,
+  process.env.DATABASE_USER,
+  process.env.DATABASE_PASSWORD,
+  config
+);
 
 const db = {};
 

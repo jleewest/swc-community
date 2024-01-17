@@ -1,14 +1,14 @@
 'use strict';
 
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const db = require('./models/db.js');
-const PORT = 3000;
-
+const PORT = process.env.PORT;
 const router = require('./router.js');
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: process.env.CORS_ORIGIN }));
 app.use(express.json());
 app.use(router);
 
