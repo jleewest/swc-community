@@ -7,7 +7,6 @@ import { useState, useEffect } from 'react';
 
 export default function MessageDetails(message) {
   const [user, setUser] = useState('');
-  //let username = '';
 
   //get username of post creator
   useEffect(() => {
@@ -33,7 +32,13 @@ export default function MessageDetails(message) {
             </span>
           </div>
           <div>
-            <span>Edit</span> | <span>Delete</span>
+            <span className='comment-options'>Edit</span> |{' '}
+            <span
+              onClick={() => message.deleteComment(message.message.id)}
+              className='comment-options'
+            >
+              Delete
+            </span>
           </div>
         </div>
         <div className='message-body'>{message.message.body}</div>

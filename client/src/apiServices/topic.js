@@ -51,20 +51,20 @@ export async function deleteTopic(id) {
   }
 }
 
-//export async function changeTopic(id) {
-//  try {
-//    const response = await fetch(`${BASE_URL}/topics/${id}/edit`, {
-//      method: 'PUT',
-//      headers: { 'Content-Type': 'application/json' },
-//      body: JSON.stringify({
-//        title: topic.title,
-//        body: topic.body,
-//UserClerkId: topic.UserClerkId,
-//      }),
-//    });
-//    const data = await response.json();
-//    return data;
-//  } catch (e) {
-//    console.log(e);
-//  }
-//}
+export async function changeTopic(topic, id) {
+  try {
+    const response = await fetch(`${BASE_URL}/topics/${id}/edit`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title: topic.title,
+        body: topic.body,
+        UserClerkId: topic.UserClerkId,
+      }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
+}

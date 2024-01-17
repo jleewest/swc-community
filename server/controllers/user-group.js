@@ -26,7 +26,6 @@ async function postGroupToUser(req, res) {
   }
 }
 
-//need to pass in group as well as user...
 async function deleteGroupFromUser(req, res) {
   try {
     const userWithGroup = req.body;

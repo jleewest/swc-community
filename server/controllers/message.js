@@ -38,9 +38,9 @@ async function postMessage(req, res) {
 async function deleteMessage(req, res) {
   try {
     const id = req.params.id;
-    await Schema.destroy({ where: { id: id } });
+    const saved = await Schema.destroy({ where: { id: id } });
     req.body = JSON.stringify({ message: 'Message successfully deleted' });
-    res.status(200);
+    res.json(saved);
   } catch (err) {
     console.error(err);
     res.sendStatus(500);

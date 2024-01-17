@@ -1,6 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { getTopicsById } from './apiServices/topic';
-import { postMessage, getMessagesByTopicId } from './apiServices/message';
+import {
+  postMessage,
+  getMessagesByTopicId,
+  deleteMessage,
+} from './apiServices/message';
 import { getUserByClerkId } from './apiServices/user';
 import { getGroupById } from './apiServices/group';
 import { useState, useEffect } from 'react';
@@ -27,7 +31,7 @@ export default function MessagesList() {
     });
   }, [params]);
 
-  //set topic and all messages related to topic
+  //set topic of message
   useEffect(() => {
     const filterTopics = async () => {
       const getTopics = await getTopicsById(params.groupId);
@@ -39,7 +43,7 @@ export default function MessagesList() {
     filterTopics();
   }, [params]);
 
-  //
+  //set messages for topic
   useEffect(() => {
     getMessagesByTopicId(params.topicId).then((data) => {
       setMessages(sortOldestFirst(data));
@@ -77,6 +81,17 @@ export default function MessagesList() {
     event.target.reset();
   }
 
+  //delete comment
+  function deleteComment(message) {
+    console.log('🦖🦖🦖');
+    deleteMessage(message).then(() => {
+      const newMessages = messages.filter(
+        (prevMessage) => prevMessage.id !== message
+      );
+      setMessages(newMessages);
+    });
+  }
+
   return (
     <div>
       {topic.length > 0 &&
@@ -109,7 +124,11 @@ export default function MessagesList() {
                 {messages.length > 0 ? (
                   messages.map((message) => {
                     return (
-                      <MessageDetails key={message.id} message={message} />
+                      <MessageDetails
+                        key={message.id}
+                        message={message}
+                        deleteComment={deleteComment}
+                      />
                     );
                   })
                 ) : (
