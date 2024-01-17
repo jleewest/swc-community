@@ -1,7 +1,7 @@
 import './NewGroupForm.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { postGroup } from './apiServices/group';
-import img from './img/book.jpg';
+import img from './img/group-pg.jpg';
 
 //POST A NEW GROUP
 
@@ -28,48 +28,50 @@ export default function NewGroupForm() {
           </Link>
         </div>
         {/* NEW TOPIC FORM */}
-        <form onSubmit={handleSubmit} className='new-group-form'>
-          <div className='group'>
-            <div className='image-container'>
-              <div className='img'></div>
-              <img src={img} alt='Group Image' />
+        <div className='form-inner-container'>
+          <div className='image-container'>
+            <div className='img'></div>
+            <img src={img} alt='Group Image' />
+          </div>
+          <form onSubmit={handleSubmit} className='new-group-form'>
+            <div className='group'>
+              <div className='main-label'>What is the name of your group?</div>
+              <input
+                type='text'
+                name='title'
+                id='title'
+                placeholder='Enter group name...'
+                required
+              />
             </div>
-            <div className='main-label'>What is the name of your group?</div>
+            <div className='body'>
+              <div className='main-label'>Group details </div>
+              <textarea
+                type='textarea'
+                name='body'
+                id='body'
+                placeholder='Provide a clear and concise description of the purpose of this group'
+                rows='8'
+                required
+              />
+            </div>
+            <div className='main-label'>
+              Choose the cover photo for your group
+            </div>
             <input
               type='text'
-              name='title'
-              id='title'
-              placeholder='Enter group name...'
+              name='img'
+              id='img'
+              placeholder='Enter the url for your photo...'
               required
             />
-          </div>
-          <div className='body'>
-            <div className='main-label'>Group details </div>
-            <textarea
-              type='textarea'
-              name='body'
-              id='body'
-              placeholder='Provide a clear and concise description of the purpose of this group'
-              rows='8'
-              required
-            />
-          </div>
-          <div className='main-label'>
-            Choose the cover photo for your group
-          </div>
-          <input
-            type='text'
-            name='img'
-            id='img'
-            placeholder='Enter the url for your photo...'
-            required
-          />
-          <div className='submit-button'>
-            <button type='submit' className='primary-button'>
-              Add new group
-            </button>
-          </div>
-        </form>
+            <div className='submit-button'>
+              <button type='submit' className='primary-button'>
+                Add new group
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -2,10 +2,14 @@
 .NewGroupForm .form-container {
   border-width: 0.5rem;
   box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
-  display: flex;
-  flex-direction: column;
-  margin: 3rem 8rem;
-  padding: 1rem 4rem;
+  margin: 0rem 5rem;
+  padding: 1rem 2rem;
+}
+
+.NewGroupForm .form-inner-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 5%;
 }
 
 /* return-button */
@@ -17,19 +21,18 @@
   bottom: 0.5rem;
   position: relative;
   padding: 0.1rem 0.3rem;
-  left: 3.5rem;
+  left: 1.5rem;
 }
 
 /* image */
 .NewGroupForm .image-container {
-  margin: 1rem 0;
   text-align: center;
 }
 
 .NewGroupForm img {
   border: 0.5rem solid var(--tertiary-color);
   border-radius: var(--box-radius);
-  max-width: 100%;
+  max-width: 16rem;
 }
 
 /* inputs */

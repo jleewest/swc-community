@@ -29,36 +29,38 @@ export default function Display() {
   //DISPLAY STRUCTURE WITHIN WHICH ALL COMPONENTS ARE LOADED
   return (
     <div className='Display'>
-      <header>
-        <div className='banner'>
-          <div className='banner-title'>Welcome!</div>
-        </div>
-      </header>
-      <main>
-        <div className='display-navbar'>
-          <Navbar />
-        </div>
-        <div className='route-display'>
-          <Routes>
-            <Route path='/' element={<Dashboard />} />
-            <Route path='/expectations' element={<GroupExpectations />} />
-            <Route path='/groups' element={<GroupsList />} />
-            <Route path='/new-group' element={<NewGroupForm />} />
-            <Route path='/topics' element={<TopicsList />} />
-            <Route path='/topics/:id' element={<TopicsList />} />
-            <Route
-              path='/messages/:groupId/:topicId'
-              element={<MessagesList />}
-            />
-          </Routes>
-        </div>
-      </main>
-      <footer>
-        Open Source Code by{' '}
-        <a href='#' target='_blank'>
-          Jenna Westendorf
-        </a>
-      </footer>
+      <div className='display-container'>
+        <header>
+          <div className='banner'>
+            <div className='banner-title'>Welcome!</div>
+          </div>
+        </header>
+        <main>
+          <div className='display-navbar'>
+            <Navbar />
+          </div>
+          <div className='route-display'>
+            <Routes>
+              <Route path='/' element={<Dashboard />} />
+              <Route path='/expectations' element={<GroupExpectations />} />
+              <Route path='/groups' element={<GroupsList />} />
+              <Route path='/new-group' element={<NewGroupForm />} />
+              <Route path='/topics' element={<TopicsList />} />
+              <Route path='/topics/:id' element={<TopicsList />} />
+              <Route
+                path='/messages/:groupId/:topicId'
+                element={<MessagesList />}
+              />
+            </Routes>
+          </div>
+        </main>
+        <footer>
+          Open Source Code by{' '}
+          <a href='#' target='_blank'>
+            Jenna Westendorf
+          </a>
+        </footer>
+      </div>
     </div>
   );
 }

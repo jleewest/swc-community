@@ -1,4 +1,9 @@
 /* TOP HEADER */
+.Display .display-container {
+  background-color: var(--tertiary-color);
+  padding-top: 1rem;
+}
+
 .Display header {
   background-image: url(./img/writing-header.jpg);
   background-repeat: no-repeat;

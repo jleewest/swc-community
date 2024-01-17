@@ -83,7 +83,6 @@ export default function MessagesList() {
 
   //delete comment
   function deleteComment(message) {
-    console.log('🦖🦖🦖');
     deleteMessage(message).then(() => {
       const newMessages = messages.filter(
         (prevMessage) => prevMessage.id !== message

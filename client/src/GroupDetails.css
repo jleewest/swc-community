@@ -27,8 +27,8 @@
 .GroupDetails img {
   border: 0.2rem solid var(--tertiary-color);
   border-radius: var(--box-radius);
-  height: 6rem;
-  width: 6rem;
+  height: 7rem;
+  width: 9rem;
 }
 
 /* GROUP TITLE AND DESCRIPTION */
@@ -45,6 +45,7 @@
   font-size: 0.75rem;
   padding: 0.5rem 0.5rem;
   line-height: 1rem;
+  text-align: center;
 }
 
 /* submit button */
